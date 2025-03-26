@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - StormJet X130</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/ui-improvements.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><img src="../images/logo-icon.svg" alt="StormJet Logo" width="30" height="30" class="logo-icon">StormJet<span>X130</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#benefici">Benefici</a></li>
+                    <li><a href="../index.html#demo">Demo</a></li>
+                    <li><a href="../index.html#recensioni">Recensioni</a></li>
+                    <li><a href="../index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page">
+        <div class="container">
+            <h1 class="page-title">Completa il tuo ordine</h1>
+            
+            <div class="checkout-container">
+                <div class="checkout-steps">
+                    <div class="step active" id="step-1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Riepilogo ordine</div>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Dati personali</div>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Spedizione</div>
+                    </div>
+                    <div class="step" id="step-4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Pagamento</div>
+                    </div>
+                    <div class="step" id="step-5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Conferma</div>
+                    </div>
+                </div>
+                
+                <div class="checkout-content">
+                    <!-- Step 1: Riepilogo ordine -->
+                    <div class="checkout-step-content active" id="step-1-content">
+                        <h2>Riepilogo del tuo ordine</h2>
+                        
+                        <div class="order-summary">
+                            <div class="product-item" id="product-summary">
+                                <div class="product-image">
+                                    <img src="../images/optimized/product_1.webp" alt="StormJet X130">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-title">StormJet X130</h3>
+                                    <p class="product-description">Turbo ventilatore da 130.000 RPM</p>
+                                    <div class="product-quantity">
+                                        <label for="quantity">Quantità:</label>
+                                        <div class="quantity-controls">
+                                            <button type="button" class="quantity-btn minus">-</button>
+                                            <input type="number" id="quantity" value="1" min="1" max="10">
+                                            <button type="button" class="quantity-btn plus">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-price">
+                                    <div class="original-price">€149,99</div>
+                                    <div class="discount-badge">-67%</div>
+                                    <div class="final-price">€49,99</div>
+                                </div>
+                            </div>
+                            
+                            <div class="accessories-section">
+                                <h3>Accessori consigliati</h3>
+                                
+                                <div class="accessory-item">
+                                    <div class="accessory-checkbox">
+                                        <input type="checkbox" id="accessory-1">
+                                        <label for="accessory-1"></label>
+                                    </div>
+                                    <div class="accessory-image">
+                                        <img src="../images/optimized/accessory_1.webp" alt="Set ugelli di precisione">
+                                    </div>
+                                    <div class="accessory-details">
+                                        <h4>Set ugelli di precisione</h4>
+                                        <p>5 ugelli specializzati per diverse applicazioni</p>
+                                    </div>
+                                    <div class="accessory-price">€19,99</div>
+                                </div>
+                                
+                                <div class="accessory-item">
+                                    <div class="accessory-checkbox">
+                                        <input type="checkbox" id="accessory-2">
+                                        <label for="accessory-2"></label>
+                                    </div>
+                                    <div class="accessory-image">
+                                        <img src="../images/optimized/accessory_2.webp" alt="Custodia premium">
+                                    </div>
+                                    <div class="accessory-details">
+                                        <h4>Custodia premium</h4>
+                                        <p>Proteggi il tuo StormJet con la custodia ufficiale</p>
+                                    </div>
+                                    <div class="accessory-price">€14,99</div>
+                                </div>
+                            </div>
+                            
+                            <div class="discount-code-section">
+                                <h3>Hai un codice sconto?</h3>
+                                <div class="discount-code-input">
+                                    <input type="text" id="discount-code" placeholder="Inserisci il tuo codice">
+                                    <button type="button" id="apply-discount">Applica</button>
+                                </div>
+                                <p class="discount-note">I codici sconto sono applicabili solo agli accessori, non al prezzo base del prodotto.</p>
+                            </div>
+                            
+                            <div class="order-totals">
+                                <div class="total-row">
+                                    <span>Subtotale:</span>
+                                    <span id="subtotal">€49,99</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Accessori:</span>
+                                    <span id="accessories-total">€0,00</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Sconto:</span>
+                                    <span id="discount-total">-€0,00</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Spedizione:</span>
+                                    <span id="shipping-total">€4,99</span>
+                                </div>
+                                <div class="total-row grand-total">
+                                    <span>Totale:</span>
+                                    <span id="grand-total">€54,98</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <a href="../index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Torna allo shop</a>
+                            <button type="button" class="next-step-btn" data-next="2">Continua <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Dati personali -->
+                    <div class="checkout-step-content" id="step-2-content">
+                        <h2>I tuoi dati personali</h2>
+                        
+                        <form class="personal-info-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">Nome *</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Cognome *</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefono *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="notes">Note (opzionale)</label>
+                                <textarea id="notes" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="privacy-policy" required>
+                                    <label for="privacy-policy">Ho letto e accetto la <a href="#">Privacy Policy</a> *</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="newsletter">
+                                    <label for="newsletter">Desidero iscrivermi alla newsletter per ricevere offerte esclusive</label>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="back-step-btn" data-prev="1"><i class="fas fa-arrow-left"></i> Indietro</button>
+                            <button type="button" class="next-step-btn" data-next="3">Continua <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Spedizione -->
+                    <div class="checkout-step-content" id="step-3-content">
+                        <h2>Indirizzo di spedizione</h2>
+                        
+                        <form class="shipping-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="address">Indirizzo *</label>
+                                    <input type="text" id="address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address-number">Numero civico *</label>
+                                    <input type="text" id="address-number" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">Città *</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="postal-code">CAP *</label>
+                                    <input type="text" id="postal-code" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="province">Provincia *</label>
+                                    <input type="text" id="province" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Paese *</label>
+                                    <select id="country" required>
+                                        <option value="IT" selected>Italia</option>
+                                        <option value="FR">Francia</option>
+                                        <option value="DE">Germania</option>
+                                        <option value="ES">Spagna</option>
+                                        <option value="UK">Regno Unito</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="shipping-options">
+                                <h3>Metodo di spedizione</h3>
+                                
+                                <div class="shipping-option">
+                                    <input type="radio" name="shipping" id="shipping-standard" checked>
+                                    <label for="shipping-standard">
+                                        <div class="shipping-option-details">
+                                            <div class="shipping-name">Spedizione standard</div>
+                                            <div class="shipping-description">Consegna in 2-5 giorni lavorativi</div>
+                                        </div>
+                                        <div class="shipping-price">€4,99</div>
+                                    </label>
+                                </div>
+                                
+                                <div class="shipping-option">
+                                    <input type="radio" name="shipping" id="shipping-express">
+                                    <label for="shipping-express">
+                                        <div class="shipping-option-details">
+                                            <div class="shipping-name">Spedizione espressa</div>
+                                            <div class="shipping-description">Consegna in 1-2 giorni lavorativi</div>
+                                        </div>
+                                        <div class="shipping-price">€9,99</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="back-step-btn" data-prev="2"><i class="fas fa-arrow-left"></i> Indietro</button>
+                            <button type="button" class="next-step-btn" data-next="4">Continua <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Pagamento -->
+                    <div class="checkout-step-content" id="step-4-content">
+                        <h2>Metodo di pagamento</h2>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" name="payment" id="payment-paypal" checked>
+                                <label for="payment-paypal">
+                                    <div class="payment-logo">
+                                        <img src="images/paypal-logo.png" alt="PayPal">
+                                    </div>
+                                    <div class="payment-details">
+                                        <div class="payment-name">PayPal</div>
+                                        <div class="payment-description">Paga in modo sicuro con il tuo account PayPal</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <input type="radio" name="payment" id="payment-bank-transfer">
+                                <label for="payment-bank-transfer">
+                                    <div class="payment-logo">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="payment-details">
+                                        <div class="payment-name">Bonifico bancario</div>
+                                        <div class="payment-description">Riceverai le istruzioni per il bonifico via email</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <input type="radio" name="payment" id="payment-revolut">
+                                <label for="payment-revolut">
+                                    <div class="payment-logo">
+                                        <img src="images/revolut-logo.png" alt="Revolut">
+                                    </div>
+                                    <div class="payment-details">
+                                        <div class="payment-name">Revolut</div>
+                                        <div class="payment-description">Paga in modo rapido con il tuo account Revolut</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details-container">
+                            <!-- PayPal details -->
+                            <div class="payment-specific-details" id="paypal-details">
+                                <p>Verrai reindirizzato al sito di PayPal per completare il pagamento in modo sicuro.</p>
+                            </div>
+                            
+                            <!-- Bank transfer details -->
+                            <div class="payment-specific-details" id="bank-transfer-details" style="display: none;">
+                                <div class="bank-details">
+                                    <p><strong>Intestatario:</strong> StormJet Srl</p>
+                                    <p><strong>IBAN:</strong> IT12A0123456789000000123456</p>
+                                    <p><strong>Banca:</strong> Banca Esempio</p>
+                                    <p><strong>Causale:</strong> Ordine StormJet X130 - [Il tuo nome]</p>
+                                </div>
+                                <p class="payment-note">Importante: Il tuo ordine verrà elaborato solo dopo la ricezione del pagamento.</p>
+                            </div>
+                            
+                            <!-- Revolut details -->
+                            <div class="payment-specific-details" id="revolut-details" style="display: none;">
+                                <p>Verrai reindirizzato all'app Revolut per completare il pagamento in modo sicuro.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="back-step-btn" data-prev="3"><i class="fas fa-arrow-left"></i> Indietro</button>
+                            <button type="button" class="next-step-btn" data-next="5">Rivedi ordine <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5: Conferma -->
+                    <div class="checkout-step-content" id="step-5-content">
+                        <h2>Rivedi e conferma il tuo ordine</h2>
+                        
+                        <div class="order-review">
+                            <div class="review-section">
+                                <h3>Prodotti</h3>
+                                <div class="review-products">
+                                    <div class="review-product">
+                                        <div class="review-product-image">
+                                            <img src="../images/optimized/product_1.webp" alt="StormJet X130">
+                                        </div>
+                                        <div class="review-product-details">
+                                            <h4>StormJet X130</h4>
+                                            <p>Quantità: <span id="review-quantity">1</span></p>
+                                        </div>
+                                        <div class="review-product-price">€49,99</div>
+                                    </div>
+                                    <div class="review-accessories" id="review-accessories">
+                                        <!-- Accessori selezionati verranno inseriti qui dinamicamente -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h3>Dati personali</h3>
+                                <div class="review-personal-info" id="review-personal-info">
+                                    <p><strong>Nome:</strong> <span id="review-name"></span></p>
+                                    <p><strong>Email:</strong> <span id="review-email"></span></p>
+                                    <p><strong>Telefono:</strong> <span id="review-phone"></span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h3>Indirizzo di spedizione</h3>
+                                <div class="review-shipping-info" id="review-shipping-info">
+                                    <p><span id="review-address"></span>, <span id="review-address-number"></span></p>
+                                    <p><span id="review-postal-code"></span> <span id="review-city"></span> (<span id="review-province"></span>)</p>
+                                    <p><span id="review-country"></span></p>
+                                </div>
+                                <p><strong>Metodo di spedizione:</strong> <span id="review-shipping-method">Spedizione standard (2-5 giorni lavorativi)</span></p>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h3>Metodo di pagamento</h3>
+                                <p id="review-payment-method">PayPal</p>
+                            </div>
+                            
+                            <div class="review-totals">
+                                <div class="review-total-row">
+                                    <span>Subtotale:</span>
+                                    <span id="review-subtotal">€49,99</span>
+                                </div>
+                                <div class="review-total-row">
+                                    <span>Accessori:</span>
+                                    <span id="review-accessories-total">€0,00</span>
+                                </div>
+                                <div class="review-total-row">
+                                    <span>Sconto:</span>
+                                    <span id="review-discount-total">-€0,00</span>
+                                </div>
+                                <div class="review-total-row">
+                                    <span>Spedizione:</span>
+                                    <span id="review-shipping-total">€4,99</span>
+                                </div>
+                                <div class="review-total-row grand-total">
+                                    <span>Totale:</span>
+                                    <span id="review-grand-total">€54,98</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="terms-agreement">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms-conditions" required>
+                                <label for="terms-conditions">Ho letto e accetto i <a href="#">Termini e Condizioni</a> di vendita *</label>
+                            </div>
+                        </div>
+                        
+                        <div class="step-navigation">
+                            <button type="button" class="back-step-btn" data-prev="4"><i class="fas fa-arrow-left"></i> Indietro</button>
+                            <button type="button" id="place-order-btn" class="place-order-btn">Conferma ordine</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Order Confirmation -->
+                    <div class="checkout-step-content" id="order-confirmation">
+                        <div class="order-success">
+                            <div class="success-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Grazie per il tuo ordine!</h2>
+                            <p class="order-number">Numero ordine: <strong>#<span id="order-number">ST12345678</span></strong></p>
+                            <p>Abbiamo inviato una conferma dell'ordine all'indirizzo email <strong><span id="confirmation-email"></span></strong>.</p>
+                            
+                            <div class="order-details-summary">
+                                <h3>Riepilogo dell'ordine</h3>
+                                <p><strong>Prodotto:</strong> StormJet X130</p>
+                                <p><strong>Totale:</strong> <span id="confirmation-total">€54,98</span></p>
+                                <p><strong>Metodo di pagamento:</strong> <span id="confirmation-payment">PayPal</span></p>
+                            </div>
+                            
+                            <div class="next-steps">
+                                <h3>Cosa succede ora?</h3>
+                                <ol>
+                                    <li>Riceverai un'email di conferma con i dettagli dell'ordine.</li>
+                                    <li>Il tuo ordine verrà elaborato entro 24 ore.</li>
+                                    <li>Riceverai un'email con il numero di tracciamento quando l'ordine verrà spedito.</li>
+                                    <li>Il tuo StormJet X130 arriverà entro i tempi di consegna previsti.</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="confirmation-actions">
+                                <a href="../index.html" class="back-to-home-btn">Torna alla home</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-sidebar">
+                    <div class="order-summary-sidebar">
+                        <h3>Riepilogo ordine</h3>
+                        
+                        <div class="sidebar-product">
+                            <div class="sidebar-product-image">
+                                <img src="../images/optimized/product_1.webp" alt="StormJet X130">
+                            </div>
+                            <div class="sidebar-product-details">
+                                <h4>StormJet X130</h4>
+                                <p>Quantità: <span id="sidebar-quantity">1</span></p>
+                            </div>
+                            <div class="sidebar-product-price">€49,99</div>
+                        </div>
+                        
+                        <div id="sidebar-accessories">
+                            <!-- Accessori selezionati verranno inseriti qui dinamicamente -->
+                        </div>
+                        
+                        <div class="sidebar-totals">
+                            <div class="sidebar-total-row">
+                                <span>Subtotale:</span>
+                                <span id="sidebar-subtotal">€49,99</span>
+                            </div>
+                            <div class="sidebar-total-row">
+                                <span>Accessori:</span>
+                                <span id="sidebar-accessories-total">€0,00</span>
+                            </div>
+                            <div class="sidebar-total-row">
+                                <span>Sconto:</span>
+                                <span id="sidebar-discount-total">-€0,00</span>
+                            </div>
+                            <div class="sidebar-total-row">
+                                <span>Spedizione:</span>
+                                <span id="sidebar-shipping-total">€4,99</span>
+                            </div>
+                            <div class="sidebar-total-row grand-total">
+                                <span>Totale:</span>
+                                <span id="sidebar-grand-total">€54,98</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="secure-checkout">
+                        <div class="secure-icons">
+                            <i class="fas fa-lock"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <p>Pagamento sicuro e crittografato</p>
+                    </div>
+                    
+                    <div class="support-info">
+                        <h4>Hai bisogno di aiuto?</h4>
+                        <p><i class="fas fa-envelope"></i> support@stormjet.com</p>
+                        <p><i class="fas fa-phone"></i> +39 02 1234567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>StormJet<span>X130</span></h2>
+                    <p>Il turbo ventilatore più potente sul mercato</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Link utili</h3>
+                    <ul>
+                        <li><a href="#">Chi siamo</a></li>
+                        <li><a href="#">Termini e condizioni</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Spedizioni</a></li>
+                        <li><a href="#">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contattaci</h3>
+                    <p><i class="fas fa-envelope"></i> info@stormjet.com</p>
+                    <p><i class="fas fa-phone"></i> +39 02 1234567</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StormJet. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/ui-interactions.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>

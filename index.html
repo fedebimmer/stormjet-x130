@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="css/title-contrast-fixes.css">
     <link rel="stylesheet" href="css/price-logic-fixes.css">
     
+    <!-- CSS per miglioramenti UI -->
+    <link rel="stylesheet" href="css/ui-improvements.css">
+    
     <!-- Font e icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +43,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>StormJet<span>X130</span></h1>
+                <h1><img src="images/logo-icon.svg" alt="StormJet Logo" width="30" height="30" class="logo-icon">StormJet<span>X130</span></h1>
             </div>
             <div class="mobile-menu-btn">
                 <span></span>
@@ -70,13 +73,13 @@
                     <div class="discount-badge">-67%</div>
                     <div class="current-price">€49,99</div>
                 </div>
-                <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1" class="cta-button pulse" aria-label="Acquista StormJet X130 a €49,99">Acquista ora</a>
+                <a href="checkout/index.html?package=single&price=49.99&id=SJ130-1" class="cta-button pulse" aria-label="Acquista StormJet X130 a €49,99">Acquista ora</a>
                 <div class="limited-offer">
                     <i class="fas fa-clock"></i> Offerta limitata: scade tra <span id="countdown">05:59:59</span>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/optimized/product_1.webp" alt="StormJet X130 Turbo Ventilatore" class="rotating-product">
+                <img src="images/optimized/product_1.webp" alt="StormJet X130 Turbo Ventilatore" class="rotating-product" id="product-image">
             </div>
         </div>
         <div class="stock-notification">
@@ -113,10 +116,13 @@
         <div class="container">
             <h2 class="section-title">Guarda StormJet X130 in azione</h2>
             <div class="video-container">
-                <video controls>
+                <video controls id="demo-video">
                     <source src="videos/video_aliexpress_optimized.mp4" type="video/mp4">
                     Il tuo browser non supporta il tag video.
                 </video>
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
             </div>
             <div class="features-list">
                 <div class="feature">
@@ -252,7 +258,7 @@
                             <li><i class="fas fa-check"></i> Cavo di ricarica USB-C</li>
                             <li><i class="fas fa-check"></i> Manuale utente</li>
                         </ul>
-                        <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99" aria-label="Acquista 1 StormJet X130 a €49,99">Acquista ora</a>
+                        <a href="checkout/index.html?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99" aria-label="Acquista 1 StormJet X130 a €49,99">Acquista ora</a>
                     </div>
                 </div>
                 <div class="package">
@@ -274,7 +280,7 @@
                             <li><i class="fas fa-check"></i> 2 Cavi di ricarica USB-C</li>
                             <li><i class="fas fa-check"></i> Spedizione gratuita</li>
                         </ul>
-                        <a href="checkout/index.php?package=double&price=99.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="99.98" aria-label="Acquista 2 StormJet X130 a €99,98">Acquista ora</a>
+                        <a href="checkout/index.html?package=double&price=99.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="99.98" aria-label="Acquista 2 StormJet X130 a €99,98">Acquista ora</a>
                     </div>
                 </div>
                 <div class="package">
@@ -296,7 +302,7 @@
                             <li><i class="fas fa-check"></i> 3 Cavi di ricarica USB-C</li>
                             <li><i class="fas fa-check"></i> Custodia premium in omaggio</li>
                         </ul>
-                        <a href="checkout/index.php?package=triple&price=149.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="149.97" aria-label="Acquista 3 StormJet X130 a €149,97">Acquista ora</a>
+                        <a href="checkout/index.html?package=triple&price=149.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="149.97" aria-label="Acquista 3 StormJet X130 a €149,97">Acquista ora</a>
                     </div>
                 </div>
             </div>
@@ -312,7 +318,7 @@
         <div class="container">
             <h2 class="section-title">Domande Frequenti</h2>
             <div class="faq-container">
-                <div class="faq-item">
+                <div class="faq-item" id="faq-1">
                     <div class="faq-question">
                         <h3>Quanto dura la batteria?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -321,7 +327,7 @@
                         <p>La batteria da 2000mAh garantisce fino a 60 minuti di utilizzo continuo alla potenza minima e circa 30 minuti alla potenza massima. La ricarica completa richiede circa 1 ora con un caricatore standard USB-C.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item" id="faq-2">
                     <div class="faq-question">
                         <h3>È davvero potente come un compressore?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -330,7 +336,7 @@
                         <p>Sì, StormJet X130 raggiunge 130.000 RPM, generando un flusso d'aria fino a 45m/s, paragonabile a molti compressori portatili. È perfetto per la pulizia di componenti elettronici, tastiere, interni auto e altre applicazioni che richiedono aria compressa.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item" id="faq-3">
                     <div class="faq-question">
                         <h3>Quali accessori sono inclusi?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -339,7 +345,7 @@
                         <p>Ogni StormJet X130 include: il dispositivo principale, un set di ugelli intercambiabili (ugello standard, ugello di precisione, ugello a spazzola), un cavo di ricarica USB-C e un manuale utente. I pacchetti multipli includono accessori aggiuntivi come indicato nelle descrizioni.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item" id="faq-4">
                     <div class="faq-question">
                         <h3>Quanto tempo impiega la spedizione?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -348,7 +354,7 @@
                         <p>Spediamo entro 24 ore dall'ordine. La consegna standard richiede 2-5 giorni lavorativi in Italia. Per ordini superiori a €99,98 la spedizione è gratuita. È disponibile anche la spedizione espressa con consegna in 1-2 giorni lavorativi a un costo aggiuntivo.</p>
                     </div>
                 </div>
-                <div class="faq-item">
+                <div class="faq-item" id="faq-5">
                     <div class="faq-question">
                         <h3>Come funziona la garanzia?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -438,6 +444,7 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/countdown-discount.js"></script>
+    <script src="js/ui-interactions.js"></script>
     <script src="js/conversion-elements.js"></script>
     <script src="js/navigation-fixes.js"></script>
     <script src="js/cta-handlers.js"></script>

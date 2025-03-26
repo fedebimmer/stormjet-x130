@@ -1,5 +1,5 @@
 /**
- * Checkout Redirect Script
+ * Checkout Redirect Script - Versione ottimizzata
  * 
  * Questo script gestisce il reindirizzamento corretto dei pulsanti "Acquista ora"
  * verso una pagina di checkout completa con form per i dati cliente e pagamento.
@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Ottieni l'URL originale dal pulsante
             const originalUrl = this.getAttribute('href');
             
+            // Verifica che l'URL sia valido
+            if (!originalUrl || !originalUrl.includes('checkout.php')) {
+                console.error('URL di checkout non valido:', originalUrl);
+                alert('Si è verificato un errore. Riprova più tardi.');
+                return;
+            }
+            
             // Estrai i parametri dall'URL
             const urlParams = new URLSearchParams(originalUrl.split('?')[1]);
             const packageType = urlParams.get('package');
@@ -24,20 +31,44 @@ document.addEventListener('DOMContentLoaded', function() {
             const productId = urlParams.get('id');
             const source = urlParams.get('source') || 'landing_page';
             
+            // Verifica che i parametri essenziali siano presenti
+            if (!packageType || !price || !productId) {
+                console.error('Parametri mancanti nell\'URL di checkout:', originalUrl);
+                alert('Si è verificato un errore. Riprova più tardi.');
+                return;
+            }
+            
+            // Verifica il prezzo unitario minimo
+            let quantity = 1;
+            if (packageType === 'double') quantity = 2;
+            if (packageType === 'triple') quantity = 3;
+            
+            if (!validateMinimumUnitPrice(parseFloat(price), quantity)) {
+                console.error('Prezzo unitario inferiore al minimo consentito');
+                // Correggi il prezzo
+                const correctedPrice = (49.99 * quantity).toFixed(2);
+                console.log(`Correzione automatica del prezzo: ${price} -> ${correctedPrice}`);
+                urlParams.set('price', correctedPrice);
+            }
+            
             // Crea l'URL per la pagina di checkout completa
-            const checkoutUrl = `/checkout/index.php?package=${packageType}&price=${price}&id=${productId}&source=${source}`;
+            // Usa percorso relativo per maggiore compatibilità
+            const checkoutUrl = `checkout/index.php?${urlParams.toString()}`;
             
             // Salva i dati dell'ordine in localStorage per il recupero nella pagina di checkout
             localStorage.setItem('stormjet_order', JSON.stringify({
                 package: packageType,
-                price: price,
+                price: urlParams.get('price'), // Usa il prezzo potenzialmente corretto
                 id: productId,
                 source: source,
                 timestamp: new Date().toISOString()
             }));
             
-            // Reindirizza alla pagina di checkout
-            window.location.href = checkoutUrl;
+            // Aggiungi un piccolo ritardo per dare tempo al localStorage di salvare
+            setTimeout(() => {
+                // Reindirizza alla pagina di checkout
+                window.location.href = checkoutUrl;
+            }, 100);
         });
     });
     
@@ -132,4 +163,24 @@ document.addEventListener('DOMContentLoaded', function() {
             discount: accessoryPrice - discountedAccessoryPrice
         };
     };
+    
+    // Verifica che la directory checkout esista
+    function checkCheckoutDirectory() {
+        // Crea un elemento immagine nascosto per verificare se la directory checkout esiste
+        const testImg = document.createElement('img');
+        testImg.style.display = 'none';
+        testImg.src = 'checkout/test-directory.gif';
+        
+        testImg.onerror = function() {
+            console.error('Directory checkout non trovata. I reindirizzamenti potrebbero non funzionare correttamente.');
+        };
+        
+        document.body.appendChild(testImg);
+        setTimeout(() => {
+            document.body.removeChild(testImg);
+        }, 1000);
+    }
+    
+    // Esegui la verifica della directory checkout
+    checkCheckoutDirectory();
 });

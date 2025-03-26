@@ -70,7 +70,7 @@
                     <div class="discount-badge">-67%</div>
                     <div class="current-price">€49,99</div>
                 </div>
-                <a href="checkout.php?package=single&price=49.99&id=SJ130-1" class="cta-button pulse" aria-label="Acquista StormJet X130 a €49,99">Acquista ora</a>
+                <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1" class="cta-button pulse" aria-label="Acquista StormJet X130 a €49,99">Acquista ora</a>
                 <div class="limited-offer">
                     <i class="fas fa-clock"></i> Offerta limitata: scade tra <span id="countdown">05:59:59</span>
                 </div>
@@ -210,35 +210,10 @@
         </div>
     </section>
 
-    <!-- Codici Sconto Section (aggiunta dinamicamente via JS) -->
-    <div class="discount-section">
-        <h2>Codici Sconto Esclusivi</h2>
-        <p>Utilizza questi codici durante il checkout per ottenere vantaggi esclusivi:</p>
-        <div class="discount-codes-container">
-            <div class="discount-badge">
-                <span class="discount-code welcome">
-                    <i class="fas fa-tag discount-code-icon"></i>WELCOME15
-                    <button class="copy-code-button">Copia</button>
-                    <span class="copy-confirmation">Copiato!</span>
-                </span>
-                <p>15% di sconto sugli accessori extra</p>
-            </div>
-            <div class="discount-badge">
-                <span class="discount-code extra">
-                    <i class="fas fa-gift discount-code-icon"></i>EXTRA10
-                    <button class="copy-code-button">Copia</button>
-                    <span class="copy-confirmation">Copiato!</span>
-                </span>
-                <p>Accessori extra gratuiti</p>
-            </div>
-        </div>
-        <p class="discount-note">* I codici sconto si applicano solo agli accessori extra e alla spedizione, non al prezzo base del prodotto.</p>
-    </div>
-
-    <!-- Offerta Limitata Section -->
+    <!-- Offerta con Countdown Section -->
     <section id="acquista" class="section-padding dark-bg">
         <div class="container">
-            <h2 class="section-title">Offerta Limitata</h2>
+            <h2 class="section-title">Offerta Speciale a Tempo Limitato</h2>
             <div class="countdown-container" aria-label="Countdown offerta limitata">
                 <div class="countdown-label">L'offerta scade tra:</div>
                 <div id="countdown-timer" class="countdown-timer">
@@ -260,57 +235,74 @@
             </div>
             <div class="packages-container">
                 <div class="package">
-                    <h3>1 StormJet X130</h3>
-                    <div class="package-price">
-                        <div class="original">€149,99</div>
-                        <div class="current">€49,99</div>
+                    <div class="package-header">
+                        <h3>1 StormJet X130</h3>
+                        <div class="package-image">
+                            <img src="images/optimized/product_1.webp" alt="1 StormJet X130">
+                        </div>
                     </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> 1 StormJet X130</li>
-                        <li><i class="fas fa-check"></i> Cavo di ricarica USB-C</li>
-                        <li><i class="fas fa-check"></i> Manuale d'uso</li>
-                        <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
-                        <li><i class="fas fa-times"></i> Spedizione gratuita</li>
-                    </ul>
-                    <a href="checkout.php?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99" aria-label="Acquista 1 StormJet X130 a €49,99">Acquista ora</a>
-                </div>
-                <div class="package popular">
-                    <div class="popular-badge">PIÙ POPOLARE</div>
-                    <h3>2 StormJet X130</h3>
-                    <div class="package-price">
-                        <div class="original">€299,98</div>
-                        <div class="current">€99,98</div>
-                        <div class="per-unit">€49,99 per unità</div>
+                    <div class="package-details">
+                        <div class="package-price">
+                            <div class="original">€149,99</div>
+                            <div class="current">€49,99</div>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 1 StormJet X130</li>
+                            <li><i class="fas fa-check"></i> 1 Set di ugelli</li>
+                            <li><i class="fas fa-check"></i> Cavo di ricarica USB-C</li>
+                            <li><i class="fas fa-check"></i> Manuale utente</li>
+                        </ul>
+                        <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99" aria-label="Acquista 1 StormJet X130 a €49,99">Acquista ora</a>
                     </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> 2 StormJet X130</li>
-                        <li><i class="fas fa-check"></i> 2 Cavi di ricarica USB-C</li>
-                        <li><i class="fas fa-check"></i> Manuale d'uso</li>
-                        <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
-                        <li><i class="fas fa-check"></i> Spedizione gratuita</li>
-                    </ul>
-                    <a href="checkout.php?package=double&price=99.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="99.98" aria-label="Acquista 2 StormJet X130 a €99,98">Acquista ora</a>
                 </div>
                 <div class="package">
-                    <h3>3 StormJet X130</h3>
-                    <div class="package-price">
-                        <div class="original">€449,97</div>
-                        <div class="current">€149,97</div>
-                        <div class="per-unit">€49,99 per unità</div>
+                    <div class="package-header">
+                        <h3>2 StormJet X130</h3>
+                        <div class="package-image">
+                            <img src="images/optimized/product_1.webp" alt="2 StormJet X130">
+                        </div>
                     </div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> 3 StormJet X130</li>
-                        <li><i class="fas fa-check"></i> 3 Cavi di ricarica USB-C</li>
-                        <li><i class="fas fa-check"></i> Manuale d'uso</li>
-                        <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
-                        <li><i class="fas fa-check"></i> Spedizione gratuita</li>
-                        <li><i class="fas fa-check"></i> Ugello di precisione extra</li>
-                    </ul>
-                    <a href="checkout.php?package=triple&price=149.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="149.97" aria-label="Acquista 3 StormJet X130 a €149,97">Acquista ora</a>
+                    <div class="package-details">
+                        <div class="package-price">
+                            <div class="original">€299,98</div>
+                            <div class="current">€99,98</div>
+                            <div class="per-unit">€49,99 per unità</div>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 2 StormJet X130</li>
+                            <li><i class="fas fa-check"></i> 2 Set di ugelli</li>
+                            <li><i class="fas fa-check"></i> 2 Cavi di ricarica USB-C</li>
+                            <li><i class="fas fa-check"></i> Spedizione gratuita</li>
+                        </ul>
+                        <a href="checkout/index.php?package=double&price=99.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="99.98" aria-label="Acquista 2 StormJet X130 a €99,98">Acquista ora</a>
+                    </div>
+                </div>
+                <div class="package">
+                    <div class="package-header">
+                        <h3>3 StormJet X130</h3>
+                        <div class="package-image">
+                            <img src="images/optimized/product_1.webp" alt="3 StormJet X130">
+                        </div>
+                    </div>
+                    <div class="package-details">
+                        <div class="package-price">
+                            <div class="original">€449,97</div>
+                            <div class="current">€149,97</div>
+                            <div class="per-unit">€49,99 per unità</div>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 3 StormJet X130</li>
+                            <li><i class="fas fa-check"></i> 3 Set di ugelli</li>
+                            <li><i class="fas fa-check"></i> 3 Cavi di ricarica USB-C</li>
+                            <li><i class="fas fa-check"></i> Custodia premium in omaggio</li>
+                        </ul>
+                        <a href="checkout/index.php?package=triple&price=149.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="149.97" aria-label="Acquista 3 StormJet X130 a €149,97">Acquista ora</a>
+                    </div>
                 </div>
             </div>
-            <div class="money-back-guarantee">
-                <i class="fas fa-shield-alt guarantee-icon"></i> Garanzia di rimborso di 30 giorni. Se non sei soddisfatto, ti rimborsiamo completamente.
+            <div class="guarantee">
+                <i class="fas fa-shield-alt"></i>
+                <p>Garanzia di rimborso di 30 giorni. Spedizione in 24-48 ore. Pagamento sicuro.</p>
             </div>
         </div>
     </section>
@@ -321,39 +313,48 @@
             <h2 class="section-title">Domande Frequenti</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question" tabindex="0">
+                    <div class="faq-question">
                         <h3>Quanto dura la batteria?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>La batteria del StormJet X130 dura fino a 60 minuti di utilizzo continuo a potenza media. A potenza massima, l'autonomia è di circa 30 minuti. La ricarica completa richiede circa 1 ora con un caricatore standard USB-C.</p>
+                        <p>La batteria da 2000mAh garantisce fino a 60 minuti di utilizzo continuo alla potenza minima e circa 30 minuti alla potenza massima. La ricarica completa richiede circa 1 ora con un caricatore standard USB-C.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" tabindex="0">
-                        <h3>Posso usarlo su componenti elettronici?</h3>
+                    <div class="faq-question">
+                        <h3>È davvero potente come un compressore?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Assolutamente sì! Il StormJet X130 è perfetto per la pulizia di componenti elettronici come tastiere, PC, fotocamere e altri dispositivi. La regolazione della potenza ti permette di adattare il flusso d'aria in base alla delicatezza dei componenti.</p>
+                        <p>Sì, StormJet X130 raggiunge 130.000 RPM, generando un flusso d'aria fino a 45m/s, paragonabile a molti compressori portatili. È perfetto per la pulizia di componenti elettronici, tastiere, interni auto e altre applicazioni che richiedono aria compressa.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" tabindex="0">
-                        <h3>Quali sono i tempi di consegna?</h3>
+                    <div class="faq-question">
+                        <h3>Quali accessori sono inclusi?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Spediamo entro 24 ore dall'ordine. I tempi di consegna sono di 2-3 giorni lavorativi per l'Italia. Per ordini superiori a €100, la spedizione è gratuita. Tutti gli ordini sono tracciabili e riceverai un codice di tracciamento via email.</p>
+                        <p>Ogni StormJet X130 include: il dispositivo principale, un set di ugelli intercambiabili (ugello standard, ugello di precisione, ugello a spazzola), un cavo di ricarica USB-C e un manuale utente. I pacchetti multipli includono accessori aggiuntivi come indicato nelle descrizioni.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" tabindex="0">
-                        <h3>Che tipo di garanzia offrite?</h3>
+                    <div class="faq-question">
+                        <h3>Quanto tempo impiega la spedizione?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Offriamo una garanzia di 2 anni su tutti i nostri prodotti. Inoltre, hai 30 giorni di tempo per restituire il prodotto se non sei soddisfatto, con rimborso completo. La tua soddisfazione è la nostra priorità.</p>
+                        <p>Spediamo entro 24 ore dall'ordine. La consegna standard richiede 2-5 giorni lavorativi in Italia. Per ordini superiori a €99,98 la spedizione è gratuita. È disponibile anche la spedizione espressa con consegna in 1-2 giorni lavorativi a un costo aggiuntivo.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Come funziona la garanzia?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Offriamo una garanzia di rimborso di 30 giorni e una garanzia del produttore di 12 mesi. Se non sei soddisfatto per qualsiasi motivo, puoi restituire il prodotto entro 30 giorni per un rimborso completo. La garanzia copre difetti di fabbricazione e malfunzionamenti non causati da uso improprio.</p>
                     </div>
                 </div>
             </div>
@@ -375,44 +376,51 @@
                         <li><a href="#demo">Demo</a></li>
                         <li><a href="#recensioni">Recensioni</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#acquista">Acquista Ora</a></li>
+                        <li><a href="#acquista">Acquista</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h3>Contatti</h3>
                     <p><i class="fas fa-envelope"></i> supporto@stormjet.it</p>
                     <p><i class="fas fa-phone"></i> +39 02 1234567</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <p><i class="fas fa-map-marker-alt"></i> Via Roma 123, Milano, Italia</p>
+                </div>
+                <div class="footer-payment">
+                    <h3>Metodi di Pagamento</h3>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 StormJet X130. Tutti i diritti riservati.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Termini e Condizioni</a>
+                <p>&copy; 2025 StormJet. Tutti i diritti riservati.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Popup Offerta -->
-    <div id="offer-popup" class="popup">
+    <!-- Popup Promozionale -->
+    <div id="promo-popup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
-            <h2>OFFERTA ESCLUSIVA</h2>
-            <p>Usa il codice <span class="discount-code extra">EXTRA10</span> e ricevi ACCESSORI EXTRA GRATUITI!</p>
-            <div class="popup-price">
-                <div class="original">€149,99</div>
-                <div class="current">€49,99</div>
+            <h2>Offerta Esclusiva</h2>
+            <p>Utilizza il codice <span class="discount-code">WELCOME15</span> per ottenere uno sconto del 15% sugli accessori!</p>
+            <div class="popup-image">
+                <img src="images/optimized/product_1.webp" alt="StormJet X130">
             </div>
-            <a href="checkout.php?package=single&price=49.99&id=SJ130-1&source=popup" class="popup-button" aria-label="Approfitta dell'offerta esclusiva">Approfitta ora</a>
+            <div class="popup-price">
+                <span class="original">€149,99</span>
+                <span class="current">€49,99</span>
+            </div>
             <div class="popup-timer">Offerta scade tra: <span id="popup-countdown">05:59:59</span></div>
-            <p class="discount-note">* Il codice sconto si applica solo agli accessori extra, non al prezzo base del prodotto.</p>
+            <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1&source=popup" class="popup-button" aria-label="Approfitta dell'offerta esclusiva">Approfitta ora</a>
         </div>
     </div>
 
@@ -420,30 +428,19 @@
     <div id="exit-popup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
-            <h2>ASPETTA!</h2>
-            <p>Non andartene senza il tuo sconto esclusivo!</p>
-            <p>Usa il codice <span class="discount-code welcome">WELCOME15</span> per ricevere uno SCONTO DEL 15% sugli accessori extra!</p>
-            <a href="checkout.php?package=single&price=49.99&id=SJ130-1&source=exit_popup" class="popup-button" aria-label="Torna allo shop e utilizza il codice sconto">Torna allo shop</a>
-            <p class="discount-note">* Il codice sconto si applica solo agli accessori extra, non al prezzo base del prodotto.</p>
-        </div>
-    </div>
-
-    <!-- Notification Popup -->
-    <div id="notification-popup" class="notification-popup">
-        <div class="notification-content">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente">
-            <div>
-                <strong>Marco da Milano</strong> ha appena acquistato 2 StormJet X130
-            </div>
+            <h2>Aspetta!</h2>
+            <p>Prima di andare via, abbiamo un'offerta speciale per te!</p>
+            <p>Utilizza il codice <span class="discount-code">EXTRA10</span> per ricevere accessori extra gratuiti con il tuo ordine.</p>
+            <a href="checkout/index.php?package=single&price=49.99&id=SJ130-1&source=exit_popup" class="popup-button" aria-label="Torna allo shop e utilizza il codice sconto">Torna allo shop</a>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <script src="js/conversion-elements.js"></script>
-    <script src="js/cta-handlers.js"></script>
     <script src="js/countdown-discount.js"></script>
+    <script src="js/conversion-elements.js"></script>
     <script src="js/navigation-fixes.js"></script>
+    <script src="js/cta-handlers.js"></script>
     <script src="js/checkout-redirect.js"></script>
 </body>
 </html>

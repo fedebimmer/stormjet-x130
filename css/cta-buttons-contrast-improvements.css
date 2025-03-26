@@ -1,134 +1,131 @@
-/* Ottimizzazione specifica per i bottoni CTA */
+/* Miglioramenti specifici per i pulsanti CTA - Versione finale */
+
+/* Stili base per i pulsanti CTA */
 .cta-button, .package-button, .popup-button {
-    background-color: #0052cc; /* Blu leggermente più scuro per migliorare il contrasto con il testo bianco */
-    color: #ffffff; /* Testo bianco puro */
+    background-color: #e63946; /* Rosso vivace per attirare l'attenzione */
+    color: #ffffff; /* Testo bianco per massimo contrasto */
     font-weight: 700;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Ombra sottile per migliorare la leggibilità */
-    border: none;
-    border-radius: 30px;
-    padding: 15px 30px;
     font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    padding: 15px 30px;
+    border-radius: 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    margin: 15px 0;
+    border: none;
     cursor: pointer;
-    letter-spacing: 0.5px; /* Leggero aumento della spaziatura tra lettere per migliorare la leggibilità */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Ombra per migliorare la leggibilità */
 }
 
+/* Effetto hover per i pulsanti */
 .cta-button:hover, .package-button:hover, .popup-button:hover {
-    background-color: #003d99; /* Ancora più scuro in hover per mantenere il contrasto */
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+    background-color: #c1121f; /* Rosso più scuro per l'effetto hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
+/* Effetto active per i pulsanti */
 .cta-button:active, .package-button:active, .popup-button:active {
+    background-color: #a50f15; /* Rosso ancora più scuro per l'effetto click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
 }
 
-/* Stile specifico per il pulsante nel popup */
-.popup-button {
-    background-color: #e63946; /* Rosso per il pulsante nel popup, con buon contrasto con testo bianco */
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
-}
-
-.popup-button:hover {
-    background-color: #c1121f; /* Rosso più scuro in hover */
-    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
-}
-
-/* Stile per il pulsante pulsante */
-.cta-button.pulse, .package-button.pulse {
-    animation: pulse-button 2s infinite;
-}
-
-@keyframes pulse-button {
+/* Effetto pulse per i pulsanti principali */
+@keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(0, 82, 204, 0.7);
+        box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(0, 82, 204, 0);
+        box-shadow: 0 0 0 15px rgba(230, 57, 70, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0, 82, 204, 0);
+        box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
     }
 }
 
-/* Stile per bottoni su sfondo scuro */
-.dark-bg .cta-button, .dark-bg .package-button {
-    background-color: #1a75ff; /* Blu leggermente più chiaro su sfondo scuro */
-    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.4);
+.pulse {
+    animation: pulse 2s infinite;
 }
 
-.dark-bg .cta-button:hover, .dark-bg .package-button:hover {
-    background-color: #0066ff;
-    box-shadow: 0 6px 20px rgba(26, 117, 255, 0.5);
+/* Stili specifici per i pulsanti nei pacchetti */
+.package-button {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 12px 20px;
 }
 
-/* Stile per bottoni disabilitati */
+/* Stili specifici per i pulsanti nei popup */
+.popup-button {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+}
+
+/* Stili per i pulsanti disabilitati */
 .cta-button:disabled, .package-button:disabled, .popup-button:disabled {
-    background-color: #6c757d;
-    color: #f8f9fa;
+    background-color: #cccccc;
+    color: #666666;
     cursor: not-allowed;
     box-shadow: none;
-    opacity: 0.7;
+    animation: none;
 }
 
-/* Miglioramento per la modalità scura */
+/* Stili per i pulsanti con icone */
+.cta-button i, .package-button i, .popup-button i {
+    margin-right: 8px;
+}
+
+/* Miglioramenti per la modalità scura */
 @media (prefers-color-scheme: dark) {
-    .cta-button, .package-button {
-        background-color: #1a75ff; /* Blu leggermente più chiaro in modalità scura */
+    .cta-button, .package-button, .popup-button {
+        background-color: #ff6b6b; /* Rosso più chiaro per la modalità scura */
+        color: #000000; /* Testo nero per massimo contrasto su sfondo chiaro */
+        text-shadow: none;
     }
     
-    .cta-button:hover, .package-button:hover {
-        background-color: #3385ff;
+    .cta-button:hover, .package-button:hover, .popup-button:hover {
+        background-color: #ff8c8c; /* Rosso ancora più chiaro per l'effetto hover */
     }
     
-    .popup-button {
-        background-color: #ff4d5e; /* Rosso leggermente più chiaro in modalità scura */
+    .cta-button:active, .package-button:active, .popup-button:active {
+        background-color: #ff4f4f; /* Rosso leggermente più scuro per l'effetto click */
     }
     
-    .popup-button:hover {
-        background-color: #ff6673;
+    .cta-button:disabled, .package-button:disabled, .popup-button:disabled {
+        background-color: #555555;
+        color: #999999;
     }
 }
 
-/* Miglioramento accessibilità per screen reader e navigazione da tastiera */
+/* Miglioramenti di accessibilità */
 .cta-button:focus, .package-button:focus, .popup-button:focus {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
 }
 
-/* Aggiunta di stato focus visibile per accessibilità */
-.cta-button:focus-visible, .package-button:focus-visible, .popup-button:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
-    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.5);
-}
-
-/* Assicurarsi che il testo nei bottoni abbia un rapporto di contrasto adeguato */
-.cta-button, .package-button, .popup-button {
-    /* Il colore di sfondo #0052cc con testo bianco #ffffff ha un rapporto di contrasto di 4.5:1 */
-    color: #ffffff;
-    font-weight: 700; /* Peso maggiore per migliorare ulteriormente la leggibilità */
-}
-
-/* Aggiunta di aria-label per accessibilità */
-.cta-button[aria-label], .package-button[aria-label], .popup-button[aria-label] {
-    position: relative;
-}
-
-/* Stile per bottoni più piccoli (se presenti) */
-.cta-button.small, .package-button.small, .popup-button.small {
-    font-size: 1rem;
+/* Stili per i pulsanti di acquisto nella navigazione */
+nav .cta-button {
     padding: 10px 20px;
+    font-size: 1rem;
+    margin: 0;
 }
 
-/* Stile per bottoni più grandi (se presenti) */
-.cta-button.large, .package-button.large, .popup-button.large {
-    font-size: 1.4rem;
-    padding: 18px 36px;
+/* Stili per i pulsanti di acquisto nella hero section */
+.hero-content .cta-button {
+    font-size: 1.3rem;
+    padding: 15px 35px;
+    margin-top: 20px;
+}
+
+/* Stili per i pulsanti di acquisto nei popup */
+.popup-content .popup-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 300px;
 }

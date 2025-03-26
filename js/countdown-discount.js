@@ -1,231 +1,168 @@
-// Implementazione funzionalità countdown e codici sconto
+// Implementazione funzionalità countdown ottimizzata
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Implementazione countdown funzionale
-    function setupCountdown() {
-        // Elementi countdown
-        const countdownElements = {
-            main: document.getElementById('countdown'),
-            timer: document.getElementById('countdown-timer'),
-            popup: document.getElementById('popup-countdown')
-        };
-        
-        // Struttura HTML per il countdown con unità
-        const countdownHTML = `
-            <div class="countdown-unit">
-                <span class="countdown-value hours">05</span>
-                <span class="countdown-label-small">ore</span>
-            </div>
-            <span class="countdown-separator">:</span>
-            <div class="countdown-unit">
-                <span class="countdown-value minutes">59</span>
-                <span class="countdown-label-small">min</span>
-            </div>
-            <span class="countdown-separator">:</span>
-            <div class="countdown-unit">
-                <span class="countdown-value seconds">59</span>
-                <span class="countdown-label-small">sec</span>
-            </div>
-        `;
-        
-        // Aggiorna la struttura HTML dei countdown
-        if (countdownElements.timer) {
-            countdownElements.timer.innerHTML = countdownHTML;
-        }
-        
-        // Imposta un countdown di 6 ore (in secondi)
-        let totalSeconds = 6 * 60 * 60;
-        
-        // Funzione per aggiornare il countdown
-        function updateCountdown() {
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
-            // Formatta i valori con zero iniziale se necessario
-            const formattedHours = hours.toString().padStart(2, '0');
-            const formattedMinutes = minutes.toString().padStart(2, '0');
-            const formattedSeconds = seconds.toString().padStart(2, '0');
-            
+    // Elementi countdown
+    const countdownElements = {
+        main: document.getElementById('countdown'),
+        timer: document.getElementById('countdown-timer'),
+        popup: document.getElementById('popup-countdown')
+    };
+    
+    // Verifica se gli elementi esistono prima di procedere
+    if (!countdownElements.main && !countdownElements.timer && !countdownElements.popup) {
+        console.error('Elementi countdown non trovati nella pagina');
+        return;
+    }
+    
+    // Struttura HTML per il countdown con unità
+    const countdownHTML = `
+        <div class="countdown-unit">
+            <span class="countdown-value hours">05</span>
+            <span class="countdown-label-small">ore</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-unit">
+            <span class="countdown-value minutes">59</span>
+            <span class="countdown-label-small">min</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-unit">
+            <span class="countdown-value seconds">59</span>
+            <span class="countdown-label-small">sec</span>
+        </div>
+    `;
+    
+    // Aggiorna la struttura HTML dei countdown
+    if (countdownElements.timer) {
+        countdownElements.timer.innerHTML = countdownHTML;
+    }
+    
+    // Imposta un countdown di 6 ore (in secondi)
+    let totalSeconds = 6 * 60 * 60;
+    
+    // Verifica se c'è un timestamp salvato nel localStorage
+    const savedTimestamp = localStorage.getItem('countdownTimestamp');
+    const currentTime = Math.floor(Date.now() / 1000);
+    
+    if (savedTimestamp) {
+        // Calcola il tempo rimanente
+        const elapsedSeconds = currentTime - parseInt(savedTimestamp);
+        totalSeconds = Math.max(0, 6 * 60 * 60 - elapsedSeconds);
+    } else {
+        // Salva il timestamp corrente
+        localStorage.setItem('countdownTimestamp', currentTime.toString());
+    }
+    
+    // Funzione per aggiornare il countdown
+    function updateCountdown() {
+        // Se il countdown è scaduto
+        if (totalSeconds <= 0) {
             // Aggiorna il testo del countdown semplice
             if (countdownElements.main) {
-                countdownElements.main.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+                countdownElements.main.textContent = "Offerta scaduta!";
+                countdownElements.main.classList.add('countdown-expired');
             }
             
             // Aggiorna il testo del countdown popup
             if (countdownElements.popup) {
-                countdownElements.popup.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+                countdownElements.popup.textContent = "Offerta scaduta!";
+                countdownElements.popup.classList.add('countdown-expired');
             }
             
-            // Aggiorna i valori nel countdown strutturato
+            // Aggiorna il countdown strutturato
             if (countdownElements.timer) {
-                const hoursElements = countdownElements.timer.querySelectorAll('.hours');
-                const minutesElements = countdownElements.timer.querySelectorAll('.minutes');
-                const secondsElements = countdownElements.timer.querySelectorAll('.seconds');
-                
-                hoursElements.forEach(el => el.textContent = formattedHours);
-                minutesElements.forEach(el => el.textContent = formattedMinutes);
-                secondsElements.forEach(el => el.textContent = formattedSeconds);
-                
-                // Aggiungi classe di urgenza se manca meno di 10 minuti
-                if (totalSeconds < 600) {
-                    countdownElements.timer.classList.add('countdown-urgent');
-                } else {
-                    countdownElements.timer.classList.remove('countdown-urgent');
-                }
+                countdownElements.timer.innerHTML = '<div class="countdown-expired">Offerta scaduta! Ricarica per un nuovo codice.</div>';
             }
             
-            // Decrementa il contatore
-            if (totalSeconds > 0) {
-                totalSeconds--;
+            return;
+        }
+        
+        // Calcola ore, minuti e secondi
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        
+        // Formatta i valori con zero iniziale se necessario
+        const formattedHours = hours.toString().padStart(2, '0');
+        const formattedMinutes = minutes.toString().padStart(2, '0');
+        const formattedSeconds = seconds.toString().padStart(2, '0');
+        
+        // Aggiorna il testo del countdown semplice
+        if (countdownElements.main) {
+            countdownElements.main.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+        }
+        
+        // Aggiorna il testo del countdown popup
+        if (countdownElements.popup) {
+            countdownElements.popup.textContent = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+        }
+        
+        // Aggiorna i valori nel countdown strutturato
+        if (countdownElements.timer) {
+            const hoursElements = countdownElements.timer.querySelectorAll('.hours');
+            const minutesElements = countdownElements.timer.querySelectorAll('.minutes');
+            const secondsElements = countdownElements.timer.querySelectorAll('.seconds');
+            
+            hoursElements.forEach(el => el.textContent = formattedHours);
+            minutesElements.forEach(el => el.textContent = formattedMinutes);
+            secondsElements.forEach(el => el.textContent = formattedSeconds);
+            
+            // Aggiungi classe di urgenza se manca meno di 10 minuti
+            if (totalSeconds < 600) {
+                countdownElements.timer.classList.add('countdown-urgent');
             } else {
-                // Resetta il countdown quando raggiunge zero (opzionale)
-                totalSeconds = 6 * 60 * 60;
+                countdownElements.timer.classList.remove('countdown-urgent');
             }
         }
         
-        // Aggiorna immediatamente e poi ogni secondo
+        // Decrementa il contatore
+        totalSeconds--;
+        
+        // Aggiorna il localStorage con il nuovo tempo rimanente
+        localStorage.setItem('countdownSeconds', totalSeconds.toString());
+    }
+    
+    // Aggiorna immediatamente e poi ogni secondo
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    
+    // Funzione per resettare il countdown (utile per testing)
+    window.resetCountdown = function() {
+        totalSeconds = 6 * 60 * 60;
+        localStorage.setItem('countdownTimestamp', Math.floor(Date.now() / 1000).toString());
+        localStorage.removeItem('countdownSeconds');
         updateCountdown();
-        setInterval(updateCountdown, 1000);
-    }
-    
-    // Implementazione evidenziazione codici sconto
-    function setupDiscountCodes() {
-        // Trova tutti i codici sconto nel testo
-        const welcomeCodeRegex = /WELCOME15/g;
-        const extraCodeRegex = /EXTRA10/g;
         
-        // Sostituisci i codici sconto con elementi HTML formattati
-        document.body.innerHTML = document.body.innerHTML.replace(
-            welcomeCodeRegex, 
-            '<span class="discount-code welcome discount-code-tooltip" data-tooltip="15% di sconto sul primo ordine"><i class="fas fa-tag discount-code-icon"></i>WELCOME15</span>'
-        );
-        
-        document.body.innerHTML = document.body.innerHTML.replace(
-            extraCodeRegex, 
-            '<span class="discount-code extra discount-code-tooltip" data-tooltip="Accessori extra gratuiti"><i class="fas fa-gift discount-code-icon"></i>EXTRA10</span>'
-        );
-        
-        // Aggiungi funzionalità di copia al click
-        const discountCodes = document.querySelectorAll('.discount-code');
-        discountCodes.forEach(code => {
-            // Crea il pulsante di copia
-            const copyButton = document.createElement('button');
-            copyButton.className = 'copy-code-button';
-            copyButton.textContent = 'Copia';
-            code.appendChild(copyButton);
-            
-            // Crea il messaggio di conferma
-            const copyConfirmation = document.createElement('span');
-            copyConfirmation.className = 'copy-confirmation';
-            copyConfirmation.textContent = 'Copiato!';
-            code.appendChild(copyConfirmation);
-            
-            // Aggiungi l'evento click per copiare il codice
-            copyButton.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                // Estrai il codice sconto (testo senza l'icona e il pulsante)
-                const codeText = code.textContent.replace('Copia', '').trim();
-                
-                // Copia negli appunti
-                navigator.clipboard.writeText(codeText).then(() => {
-                    // Mostra il messaggio di conferma
-                    copyConfirmation.classList.add('show');
-                    
-                    // Nascondi il messaggio dopo 2 secondi
-                    setTimeout(() => {
-                        copyConfirmation.classList.remove('show');
-                    }, 2000);
-                });
-            });
-        });
-        
-        // Crea una sezione dedicata ai codici sconto se non esiste
-        if (!document.querySelector('.discount-section') && discountCodes.length > 0) {
-            const discountSection = document.createElement('div');
-            discountSection.className = 'discount-section';
-            discountSection.innerHTML = `
-                <h2>Codici Sconto Esclusivi</h2>
-                <p>Utilizza questi codici durante il checkout per ottenere vantaggi esclusivi:</p>
-                <div class="discount-codes-container">
-                    <div class="discount-badge">
-                        <span class="discount-code welcome">
-                            <i class="fas fa-tag discount-code-icon"></i>WELCOME15
-                            <button class="copy-code-button">Copia</button>
-                            <span class="copy-confirmation">Copiato!</span>
-                        </span>
-                        <p>15% di sconto sul primo ordine</p>
-                    </div>
-                    <div class="discount-badge">
-                        <span class="discount-code extra">
-                            <i class="fas fa-gift discount-code-icon"></i>EXTRA10
-                            <button class="copy-code-button">Copia</button>
-                            <span class="copy-confirmation">Copiato!</span>
-                        </span>
-                        <p>Accessori extra gratuiti</p>
-                    </div>
-                </div>
-            `;
-            
-            // Inserisci la sezione prima della sezione FAQ
-            const faqSection = document.getElementById('faq');
-            if (faqSection) {
-                faqSection.parentNode.insertBefore(discountSection, faqSection);
-            } else {
-                // Altrimenti inseriscila prima della sezione acquista
-                const acquistaSection = document.getElementById('acquista');
-                if (acquistaSection) {
-                    acquistaSection.parentNode.insertBefore(discountSection, acquistaSection);
-                }
-            }
-            
-            // Aggiungi funzionalità di copia ai nuovi pulsanti
-            const newCopyButtons = discountSection.querySelectorAll('.copy-code-button');
-            newCopyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const codeElement = this.parentNode;
-                    const codeText = codeElement.textContent.replace('Copia', '').trim();
-                    const confirmation = codeElement.querySelector('.copy-confirmation');
-                    
-                    navigator.clipboard.writeText(codeText).then(() => {
-                        confirmation.classList.add('show');
-                        setTimeout(() => {
-                            confirmation.classList.remove('show');
-                        }, 2000);
-                    });
-                });
-            });
+        // Rimuovi la classe countdown-expired se presente
+        if (countdownElements.main) {
+            countdownElements.main.classList.remove('countdown-expired');
         }
-    }
-    
-    // Aggiungi pulsante "Torna su"
-    function addBackToTopButton() {
-        const backToTopButton = document.createElement('div');
-        backToTopButton.className = 'back-to-top';
-        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        document.body.appendChild(backToTopButton);
         
-        // Mostra/nascondi il pulsante in base allo scroll
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
+        if (countdownElements.popup) {
+            countdownElements.popup.classList.remove('countdown-expired');
+        }
         
-        // Torna all'inizio della pagina al click
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
+        if (countdownElements.timer) {
+            countdownElements.timer.innerHTML = countdownHTML;
+        }
+        
+        console.log('Countdown resettato a 6 ore');
+    };
     
-    // Inizializza tutte le funzionalità
-    setupCountdown();
-    setupDiscountCodes();
-    addBackToTopButton();
+    // Aggiungi un pulsante di reset nascosto per il testing (solo in modalità sviluppo)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        const resetButton = document.createElement('button');
+        resetButton.textContent = 'Reset Countdown (Test)';
+        resetButton.style.position = 'fixed';
+        resetButton.style.bottom = '10px';
+        resetButton.style.right = '10px';
+        resetButton.style.zIndex = '9999';
+        resetButton.style.padding = '5px 10px';
+        resetButton.style.backgroundColor = '#f0f0f0';
+        resetButton.style.border = '1px solid #ccc';
+        resetButton.style.borderRadius = '4px';
+        resetButton.style.cursor = 'pointer';
+        resetButton.onclick = window.resetCountdown;
+        document.body.appendChild(resetButton);
+    }
 });

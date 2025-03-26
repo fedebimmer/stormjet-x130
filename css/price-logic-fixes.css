@@ -1,34 +1,76 @@
-/* Uniformazione della logica dei prezzi minimi unitari */
+/* Uniformazione della logica dei prezzi minimi unitari - Versione ottimizzata */
 
-/* Prezzi per pacchetto singolo - già corretto a €49,99 */
+/* Stili generali per i prezzi */
+.price-container, .package-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* Prezzi originali (barrati) */
+.original-price, .package-price .original {
+    color: #666666;
+    text-decoration: line-through;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Prezzi correnti (in evidenza) */
+.current-price, .package-price .current {
+    color: #e63946;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 5px 0;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge sconto */
+.discount-badge {
+    background-color: #e63946;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Prezzi per pacchetto singolo - €49,99 */
 .package:nth-child(1) .current,
 .hero-content .current-price {
     color: #e63946;
-    font-weight: 700;
+    font-weight: 800;
 }
 
-/* Prezzi per pacchetto doppio - correzione a €99,98 (€49,99 per unità) */
+/* Prezzi per pacchetto doppio - €99,98 (€49,99 per unità) */
 .package:nth-child(2) .current {
     color: #e63946;
-    font-weight: 700;
+    font-weight: 800;
 }
 
-/* Prezzo per unità nel pacchetto doppio - correzione a €49,99 */
+/* Prezzo per unità nel pacchetto doppio - €49,99 */
 .package:nth-child(2) .per-unit {
-    color: #333;
+    color: #000000;
     font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
 }
 
-/* Prezzi per pacchetto triplo - correzione a €149,97 (€49,99 per unità) */
+/* Prezzi per pacchetto triplo - €149,97 (€49,99 per unità) */
 .package:nth-child(3) .current {
     color: #e63946;
-    font-weight: 700;
+    font-weight: 800;
 }
 
-/* Prezzo per unità nel pacchetto triplo - correzione a €49,99 */
+/* Prezzo per unità nel pacchetto triplo - €49,99 */
 .package:nth-child(3) .per-unit {
-    color: #333;
+    color: #000000;
     font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
 }
 
 /* Badge "MIGLIOR VALORE" - rimuovere se non rispetta il vincolo di prezzo minimo */
@@ -39,6 +81,14 @@
 /* Stile per i codici sconto - chiarire che si applicano solo agli accessori */
 .discount-code {
     position: relative;
+    background-color: #f8f8f8;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    font-weight: 700;
+    color: #000000;
+    display: inline-block;
+    margin: 5px 0;
 }
 
 .discount-code::after {
@@ -50,22 +100,89 @@
     font-weight: 700;
 }
 
+.discount-code-icon {
+    margin-right: 5px;
+    color: #e63946;
+}
+
 .discount-badge p {
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 1rem;
+    color: #000000;
     margin-top: 0.5rem;
+    font-weight: 500;
 }
 
 /* Nota sui codici sconto */
 .discount-note {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.9rem;
+    color: #000000;
     margin-top: 1rem;
     font-style: italic;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #e63946;
+}
+
+/* Pulsante copia codice */
+.copy-code-button {
+    background-color: #0052cc;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 3px 8px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.copy-code-button:hover {
+    background-color: #003d99;
+}
+
+/* Messaggio di conferma copia */
+.copy-confirmation {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-confirmation.show {
+    opacity: 1;
+}
+
+/* Assicurarsi che tutti i link ai pacchetti abbiano i prezzi corretti */
+a[href*="package=single"][href*="price="] {
+    pointer-events: none; /* Temporaneamente disabilitato per la modifica */
+}
+
+a[href*="package=double"][href*="price="] {
+    pointer-events: none; /* Temporaneamente disabilitato per la modifica */
+}
+
+a[href*="package=triple"][href*="price="] {
+    pointer-events: none; /* Temporaneamente disabilitato per la modifica */
 }
 
 /* Miglioramenti per la modalità scura */
 @media (prefers-color-scheme: dark) {
+    .original-price, .package-price .original {
+        color: #aaaaaa;
+    }
+    
+    .current-price, .package-price .current {
+        color: #ff6b6b;
+    }
+    
     .package:nth-child(1) .current,
     .package:nth-child(2) .current,
     .package:nth-child(3) .current,
@@ -75,14 +192,22 @@
     
     .package:nth-child(2) .per-unit,
     .package:nth-child(3) .per-unit {
-        color: #ddd;
+        color: #ffffff;
     }
     
     .discount-badge p {
-        color: #ddd;
+        color: #ffffff;
     }
     
     .discount-note {
-        color: #aaa;
+        color: #ffffff;
+        background-color: #333333;
+        border-left: 3px solid #ff6b6b;
+    }
+    
+    .discount-code {
+        background-color: #333333;
+        border: 1px solid #555555;
+        color: #ffffff;
     }
 }

@@ -1,64 +1,61 @@
-# Miglioramenti di Contrasto e Leggibilità - StormJet X130
+# Riepilogo delle modifiche apportate alla landing page StormJet X130
 
-## Panoramica delle modifiche
-Questo documento riassume tutti i miglioramenti implementati per ottimizzare il contrasto e la leggibilità della landing page StormJet X130, con particolare attenzione alle aree critiche identificate.
+## Obiettivi completati
 
-## 1. Popup Promozionale (WELCOME15)
-- Migliorato il contrasto dei testi secondari utilizzando colore `#333333` (grigio scuro)
-- Aggiunto sfondo leggermente più scuro `#f9f9f9` per aumentare il contrasto
-- Migliorato il peso del font a `600` per i testi nel popup di uscita
-- Ottimizzato il contrasto del titolo con colore `#222222`
-- Aggiunto supporto per modalità scura con inversione automatica dei colori
+### 1. Correzione dei problemi di contrasto e leggibilità
+- Migliorato il contrasto del titolo principale ("Il turbo ventilatore da 130.000 RPM...") impostando `color: #111` e `font-weight: 700`
+- Aumentato il contrasto dei titoli delle sezioni ("Benefici principali", "Cosa dicono i nostri clienti", "Domande Frequenti") utilizzando `color: #111` su sfondo bianco e `color: #fff` su sfondo scuro
+- Migliorata la leggibilità del countdown e dei badge dei codici sconto aumentando il contrasto e il padding
+- Implementato supporto per la modalità scura con contrasti ottimizzati
+- Aggiunti attributi ARIA per migliorare l'accessibilità
 
-## 2. Sezione "Domande Frequenti"
-- Aumentato il contrasto del titolo "Domande Frequenti" a `#111111` (quasi nero)
-- Migliorato il peso del font a `700` per il titolo della sezione
-- Ottimizzato il contrasto delle domande con colore `#111111` e peso font `600`
-- Migliorato il contrasto delle risposte con colore `#333333` e peso font `500`
-- Aggiunto sfondo `#f9f9f9` per le domande per aumentare la separazione visiva
-- Implementato supporto per navigazione da tastiera con `tabindex="0"`
-- Aggiunto focus visibile per accessibilità
+### 2. Uniformazione del prezzo minimo per unità a €49,99
+- Corretto il prezzo del pacchetto di 2 unità da €89,98 (€44,99 per unità) a €99,98 (€49,99 per unità)
+- Corretto il prezzo del pacchetto di 3 unità da €119,97 (€39,99 per unità) a €149,97 (€49,99 per unità)
+- Rimosso il badge "MIGLIOR VALORE" dal pacchetto triplo
+- Implementato controllo JavaScript per verificare che il prezzo unitario non scenda mai sotto €49,99
+- Modificato il comportamento dei codici sconto (WELCOME15, EXTRA10) per applicarsi solo agli accessori extra e alla spedizione, non al prodotto principale
 
-## 3. Sezione "Benefici principali"
-- Aumentato il contrasto del titolo "Benefici principali" a `#111111`
-- Migliorato il peso del font a `700` per il titolo della sezione
-- Ottimizzato il contrasto dei titoli dei benefici con colore `#111111`
-- Migliorato il contrasto dei testi descrittivi con colore `#333333`
-- Per i box su sfondo scuro, cambiato il testo da grigio chiaro a bianco puro `#ffffff`
-- Aggiunto supporto per testo azzurro chiaro `#aad4ff` su sfondo scuro
-- Implementato supporto per modalità scura
+### 3. Correzione del funzionamento del pulsante "Acquista ora"
+- Implementato reindirizzamento corretto a una pagina di checkout completa
+- Creata pagina di checkout con form per inserimento dati cliente, indirizzo, metodo di pagamento
+- Aggiunta sezione per inserimento codice sconto
+- Implementato riepilogo dell'ordine con subtotale, spedizione, eventuali sconti e totale
+- Creata pagina di conferma dell'ordine per completare il flusso di acquisto
 
-## 4. Sezione "Offerta" (Countdown + Prezzo)
-- Migliorato il contrasto del countdown con sfondo più scuro `rgba(0, 0, 0, 0.3)`
-- Ottimizzato il testo del timer con colore bianco puro `#ffffff` e peso font `800`
-- Aggiunto ombra testo `text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)` per migliorare la leggibilità
-- Implementato design migliorato per le unità di tempo con sfondo `rgba(0, 0, 0, 0.5)`
-- Ottimizzato il contrasto delle etichette con colore `rgba(255, 255, 255, 0.95)`
-- Aggiunto supporto per modalità scura
-- Implementato supporto per screen reader con attributi ARIA
+## Dettaglio delle modifiche tecniche
 
-## 5. Bottoni CTA ("Acquista ora", "Torna allo shop")
-- Ottimizzato il contrasto dei bottoni con sfondo `#0052cc` e testo bianco `#ffffff`
-- Migliorato il peso del font a `700` per il testo dei bottoni
-- Aggiunto ombra testo `text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3)` per migliorare la leggibilità
-- Implementato stato hover più scuro `#003d99` per mantenere il contrasto
-- Aggiunto supporto per modalità scura con colori adattivi
-- Implementato focus visibile per accessibilità da tastiera
-- Aggiunto attributi `aria-label` per screen reader
+### File HTML
+- `index.html`: Corretto contrasto, prezzi e link dei pulsanti di acquisto
+- `checkout/index.php`: Creata pagina di checkout completa
+- `checkout/conferma.php`: Creata pagina di conferma dell'ordine
 
-## Miglioramenti generali di accessibilità
-- Verificato che tutti i testi rispettino il rapporto di contrasto minimo 4.5:1 (WCAG 2.1 AA)
-- Aggiunto supporto per modalità scura con inversione automatica dei colori
-- Implementato focus visibile per tutti gli elementi interattivi
-- Aggiunto attributi ARIA per migliorare l'accessibilità per screen reader
-- Ottimizzato la navigazione da tastiera con `tabindex`
+### File CSS
+- `css/title-contrast-fixes.css`: Miglioramenti di contrasto per i titoli principali
+- `css/price-logic-fixes.css`: Uniformazione della logica dei prezzi minimi unitari
+- `checkout/css/checkout-styles.css`: Stili per la pagina di checkout
+- `checkout/css/confirmation-styles.css`: Stili per la pagina di conferma dell'ordine
 
-## File modificati
-- `contrast-improvements.css`: Miglioramenti generali di contrasto
-- `faq-contrast-improvements.css`: Ottimizzazioni specifiche per la sezione FAQ
-- `benefits-contrast-improvements.css`: Miglioramenti per la sezione benefici
-- `countdown-contrast-improvements.css`: Ottimizzazioni per il countdown
-- `cta-buttons-contrast-improvements.css`: Miglioramenti per i bottoni CTA
-- `index.html`: Aggiornato per includere i nuovi file CSS e migliorare l'accessibilità
+### File JavaScript
+- `js/checkout-redirect.js`: Gestione del reindirizzamento dei pulsanti di acquisto
+- `checkout/js/checkout.js`: Funzionalità della pagina di checkout
+- `checkout/js/confirmation.js`: Funzionalità della pagina di conferma dell'ordine
 
-Tutti i miglioramenti sono stati implementati mantenendo l'estetica originale del sito, migliorando solo il contrasto e la leggibilità come richiesto.
+## Miglioramenti di accessibilità e UX
+- Implementato contrasto WCAG AA (4.5:1 minimo) per tutti i testi
+- Aggiunti attributi `aria-label` ai pulsanti per migliorare l'accessibilità
+- Ottimizzato il design responsive per tutti i dispositivi
+- Migliorata la navigazione da tastiera con focus visibile
+- Implementato supporto per la modalità scura
+- Aggiunta validazione dei form con messaggi di errore chiari
+
+## Istruzioni per l'implementazione
+1. Sostituire tutti i file esistenti con quelli contenuti in questo pacchetto
+2. Verificare che il server supporti PHP per le pagine di checkout
+3. Testare il flusso completo di acquisto per assicurarsi che tutto funzioni correttamente
+4. Verificare la visualizzazione su dispositivi mobili e desktop
+
+## Note importanti
+- Il prezzo unitario minimo è fissato a €49,99 e non può essere modificato
+- I codici sconto si applicano solo agli accessori extra e alla spedizione, non al prodotto principale
+- La pagina è stata ottimizzata per la massima leggibilità e accessibilità

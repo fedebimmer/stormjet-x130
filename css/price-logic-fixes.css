@@ -1,0 +1,88 @@
+/* Uniformazione della logica dei prezzi minimi unitari */
+
+/* Prezzi per pacchetto singolo - già corretto a €49,99 */
+.package:nth-child(1) .current,
+.hero-content .current-price {
+    color: #e63946;
+    font-weight: 700;
+}
+
+/* Prezzi per pacchetto doppio - correzione a €99,98 (€49,99 per unità) */
+.package:nth-child(2) .current {
+    color: #e63946;
+    font-weight: 700;
+}
+
+/* Prezzo per unità nel pacchetto doppio - correzione a €49,99 */
+.package:nth-child(2) .per-unit {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Prezzi per pacchetto triplo - correzione a €149,97 (€49,99 per unità) */
+.package:nth-child(3) .current {
+    color: #e63946;
+    font-weight: 700;
+}
+
+/* Prezzo per unità nel pacchetto triplo - correzione a €49,99 */
+.package:nth-child(3) .per-unit {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Badge "MIGLIOR VALORE" - rimuovere se non rispetta il vincolo di prezzo minimo */
+.best-value-badge {
+    display: none; /* Nascosto perché non rispetta il vincolo di prezzo minimo */
+}
+
+/* Stile per i codici sconto - chiarire che si applicano solo agli accessori */
+.discount-code {
+    position: relative;
+}
+
+.discount-code::after {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: -5px;
+    color: #e63946;
+    font-weight: 700;
+}
+
+.discount-badge p {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+/* Nota sui codici sconto */
+.discount-note {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+/* Miglioramenti per la modalità scura */
+@media (prefers-color-scheme: dark) {
+    .package:nth-child(1) .current,
+    .package:nth-child(2) .current,
+    .package:nth-child(3) .current,
+    .hero-content .current-price {
+        color: #ff6b6b;
+    }
+    
+    .package:nth-child(2) .per-unit,
+    .package:nth-child(3) .per-unit {
+        color: #ddd;
+    }
+    
+    .discount-badge p {
+        color: #ddd;
+    }
+    
+    .discount-note {
+        color: #aaa;
+    }
+}

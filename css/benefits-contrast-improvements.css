@@ -1,0 +1,102 @@
+/* Ottimizzazione specifica per la sezione Benefici principali */
+#benefici .section-title {
+    color: #111111; /* Titolo quasi nero per massimo contrasto (era probabilmente più chiaro) */
+    font-weight: 700;
+    text-shadow: none; /* Rimuove eventuali ombre che potrebbero ridurre il contrasto */
+    margin-bottom: 2rem;
+}
+
+.benefits-grid {
+    gap: 25px; /* Aumenta la spaziatura tra le card per migliorare la leggibilità */
+}
+
+.benefit-card {
+    background-color: #ffffff; /* Sfondo bianco puro per massimizzare il contrasto */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    color: #111111; /* Titolo beneficio quasi nero per massimo contrasto */
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    color: #333333; /* Testo beneficio più scuro per maggiore leggibilità */
+    font-weight: 500;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Miglioramento per i box su sfondo scuro */
+.dark-bg .benefit-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Sfondo leggermente trasparente su dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-bg .benefit-card h3 {
+    color: #ffffff; /* Testo bianco puro su sfondo scuro */
+}
+
+.dark-bg .benefit-card p {
+    color: #ffffff; /* Cambiato da grigio chiaro a bianco pieno per massimo contrasto */
+}
+
+.dark-bg .section-title {
+    color: #ffffff; /* Titolo bianco su sfondo scuro */
+}
+
+/* Miglioramento per la modalità scura */
+@media (prefers-color-scheme: dark) {
+    #benefici {
+        background-color: #222222;
+    }
+    
+    #benefici .section-title {
+        color: #ffffff;
+    }
+    
+    .benefit-card {
+        background-color: #333333;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .benefit-card h3 {
+        color: #ffffff;
+    }
+    
+    .benefit-card p {
+        color: #e0e0e0;
+    }
+}
+
+/* Miglioramento accessibilità per screen reader */
+.benefit-card {
+    position: relative;
+}
+
+/* Aggiunta di focus visibile per navigazione da tastiera */
+.benefit-card:focus-within {
+    outline: 2px solid #0052cc;
+    outline-offset: 2px;
+}
+
+/* Miglioramento per testo su sfondo azzurrino */
+.benefit-card.blue-bg p {
+    color: #aad4ff; /* Testo azzurro chiaro ben visibile su sfondo scuro */
+    font-weight: 600; /* Peso maggiore per compensare il colore più chiaro */
+}

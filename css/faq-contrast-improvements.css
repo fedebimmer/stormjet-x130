@@ -1,0 +1,87 @@
+/* Ottimizzazione specifica per la sezione FAQ */
+#faq .section-title {
+    color: #111111; /* Titolo quasi nero per massimo contrasto (era probabilmente più chiaro) */
+    font-weight: 700;
+    text-shadow: none; /* Rimuove eventuali ombre che potrebbero ridurre il contrasto */
+}
+
+.faq-container {
+    background-color: #ffffff; /* Sfondo bianco puro per massimizzare il contrasto */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    background-color: #f9f9f9; /* Sfondo leggermente più scuro per le domande */
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.faq-question h3 {
+    color: #111111; /* Testo domande quasi nero per massimo contrasto */
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.faq-answer {
+    padding: 15px;
+}
+
+.faq-answer p {
+    color: #333333; /* Testo risposte più scuro */
+    font-weight: 500;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Miglioramento per hover e focus */
+.faq-question:hover h3,
+.faq-question:focus h3 {
+    color: #0052cc; /* Colore blu scuro in hover/focus per mantenere alto contrasto */
+}
+
+/* Miglioramento per la modalità scura */
+@media (prefers-color-scheme: dark) {
+    .faq-container {
+        background-color: #222222;
+    }
+    
+    .faq-question {
+        background-color: #333333;
+    }
+    
+    .faq-question h3 {
+        color: #ffffff;
+    }
+    
+    .faq-answer p {
+        color: #e0e0e0;
+    }
+    
+    .faq-question:hover h3,
+    .faq-question:focus h3 {
+        color: #4d9fff; /* Blu più chiaro in dark mode per mantenere il contrasto */
+    }
+}
+
+/* Miglioramento accessibilità per screen reader */
+.faq-question {
+    position: relative;
+}
+
+.faq-question .fa-chevron-down {
+    color: #333333; /* Icona più scura per maggiore contrasto */
+}
+
+/* Aggiunta di focus visibile per navigazione da tastiera */
+.faq-question:focus-within {
+    outline: 2px solid #0052cc;
+    outline-offset: 2px;
+}

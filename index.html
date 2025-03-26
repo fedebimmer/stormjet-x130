@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="css/discount-codes.css">
     <link rel="stylesheet" href="css/responsive-fixes.css">
     
+    <!-- CSS per miglioramenti di contrasto e leggibilità -->
+    <link rel="stylesheet" href="css/contrast-improvements.css">
+    <link rel="stylesheet" href="css/faq-contrast-improvements.css">
+    <link rel="stylesheet" href="css/benefits-contrast-improvements.css">
+    <link rel="stylesheet" href="css/countdown-contrast-improvements.css">
+    <link rel="stylesheet" href="css/cta-buttons-contrast-improvements.css">
+    
     <!-- Font e icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -227,7 +234,7 @@
     <section id="acquista" class="section-padding dark-bg">
         <div class="container">
             <h2 class="section-title">Offerta Limitata</h2>
-            <div class="countdown-container">
+            <div class="countdown-container" aria-label="Countdown offerta limitata">
                 <div class="countdown-label">L'offerta scade tra:</div>
                 <div id="countdown-timer" class="countdown-timer">
                     <div class="countdown-unit">
@@ -260,7 +267,7 @@
                         <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
                         <li><i class="fas fa-times"></i> Spedizione gratuita</li>
                     </ul>
-                    <a href="checkout.html?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99">Acquista ora</a>
+                    <a href="checkout.html?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99" aria-label="Acquista 1 StormJet X130 a €49,99">Acquista ora</a>
                 </div>
                 <div class="package popular">
                     <div class="popular-badge">PIÙ POPOLARE</div>
@@ -277,7 +284,7 @@
                         <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
                         <li><i class="fas fa-check"></i> Spedizione gratuita</li>
                     </ul>
-                    <a href="checkout.html?package=double&price=89.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="89.98">Acquista ora</a>
+                    <a href="checkout.html?package=double&price=89.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="89.98" aria-label="Acquista 2 StormJet X130 a €89,98">Acquista ora</a>
                 </div>
                 <div class="package">
                     <div class="best-value-badge">MIGLIOR VALORE</div>
@@ -295,7 +302,7 @@
                         <li><i class="fas fa-check"></i> Spedizione gratuita</li>
                         <li><i class="fas fa-check"></i> Ugello di precisione extra</li>
                     </ul>
-                    <a href="checkout.html?package=triple&price=119.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="119.97">Acquista ora</a>
+                    <a href="checkout.html?package=triple&price=119.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="119.97" aria-label="Acquista 3 StormJet X130 a €119,97">Acquista ora</a>
                 </div>
             </div>
             <div class="money-back-guarantee">
@@ -310,7 +317,7 @@
             <h2 class="section-title">Domande Frequenti</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" tabindex="0">
                         <h3>Quanto dura la batteria?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -319,7 +326,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" tabindex="0">
                         <h3>Posso usarlo su componenti elettronici?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -328,7 +335,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" tabindex="0">
                         <h3>Quali sono i tempi di consegna?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -337,7 +344,7 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" tabindex="0">
                         <h3>Che tipo di garanzia offrite?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -399,7 +406,7 @@
                 <div class="original">€149,99</div>
                 <div class="current">€49,99</div>
             </div>
-            <a href="#acquista" class="popup-button">Approfitta ora</a>
+            <a href="#acquista" class="popup-button" aria-label="Approfitta dell'offerta esclusiva">Approfitta ora</a>
             <div class="popup-timer">Offerta scade tra: <span id="popup-countdown">05:59:59</span></div>
         </div>
     </div>
@@ -410,8 +417,8 @@
             <span class="close-popup">&times;</span>
             <h2>ASPETTA!</h2>
             <p>Non andartene senza il tuo sconto esclusivo!</p>
-            <p>Usa il codice <span class="discount-code welcome">WELCOME15</span> per ricevere ACCESSORI EXTRA GRATUITI sul tuo primo ordine!</p>
-            <a href="#acquista" class="popup-button">Torna allo shop</a>
+            <p>Usa il codice <span class="discount-code welcome">WELCOME15</span> per ricevere uno SCONTO DEL 15% sul tuo primo ordine!</p>
+            <a href="#acquista" class="popup-button" aria-label="Torna allo shop e utilizza il codice sconto">Torna allo shop</a>
         </div>
     </div>
 
@@ -424,8 +431,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Pulsante "Torna su" (aggiunto dinamicamente via JS) -->
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>

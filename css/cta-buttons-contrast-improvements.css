@@ -1,0 +1,134 @@
+/* Ottimizzazione specifica per i bottoni CTA */
+.cta-button, .package-button, .popup-button {
+    background-color: #0052cc; /* Blu leggermente più scuro per migliorare il contrasto con il testo bianco */
+    color: #ffffff; /* Testo bianco puro */
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Ombra sottile per migliorare la leggibilità */
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    letter-spacing: 0.5px; /* Leggero aumento della spaziatura tra lettere per migliorare la leggibilità */
+}
+
+.cta-button:hover, .package-button:hover, .popup-button:hover {
+    background-color: #003d99; /* Ancora più scuro in hover per mantenere il contrasto */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+}
+
+.cta-button:active, .package-button:active, .popup-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.3);
+}
+
+/* Stile specifico per il pulsante nel popup */
+.popup-button {
+    background-color: #e63946; /* Rosso per il pulsante nel popup, con buon contrasto con testo bianco */
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.popup-button:hover {
+    background-color: #c1121f; /* Rosso più scuro in hover */
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+}
+
+/* Stile per il pulsante pulsante */
+.cta-button.pulse, .package-button.pulse {
+    animation: pulse-button 2s infinite;
+}
+
+@keyframes pulse-button {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 82, 204, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 82, 204, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 82, 204, 0);
+    }
+}
+
+/* Stile per bottoni su sfondo scuro */
+.dark-bg .cta-button, .dark-bg .package-button {
+    background-color: #1a75ff; /* Blu leggermente più chiaro su sfondo scuro */
+    box-shadow: 0 4px 15px rgba(26, 117, 255, 0.4);
+}
+
+.dark-bg .cta-button:hover, .dark-bg .package-button:hover {
+    background-color: #0066ff;
+    box-shadow: 0 6px 20px rgba(26, 117, 255, 0.5);
+}
+
+/* Stile per bottoni disabilitati */
+.cta-button:disabled, .package-button:disabled, .popup-button:disabled {
+    background-color: #6c757d;
+    color: #f8f9fa;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* Miglioramento per la modalità scura */
+@media (prefers-color-scheme: dark) {
+    .cta-button, .package-button {
+        background-color: #1a75ff; /* Blu leggermente più chiaro in modalità scura */
+    }
+    
+    .cta-button:hover, .package-button:hover {
+        background-color: #3385ff;
+    }
+    
+    .popup-button {
+        background-color: #ff4d5e; /* Rosso leggermente più chiaro in modalità scura */
+    }
+    
+    .popup-button:hover {
+        background-color: #ff6673;
+    }
+}
+
+/* Miglioramento accessibilità per screen reader e navigazione da tastiera */
+.cta-button:focus, .package-button:focus, .popup-button:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Aggiunta di stato focus visibile per accessibilità */
+.cta-button:focus-visible, .package-button:focus-visible, .popup-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.5);
+}
+
+/* Assicurarsi che il testo nei bottoni abbia un rapporto di contrasto adeguato */
+.cta-button, .package-button, .popup-button {
+    /* Il colore di sfondo #0052cc con testo bianco #ffffff ha un rapporto di contrasto di 4.5:1 */
+    color: #ffffff;
+    font-weight: 700; /* Peso maggiore per migliorare ulteriormente la leggibilità */
+}
+
+/* Aggiunta di aria-label per accessibilità */
+.cta-button[aria-label], .package-button[aria-label], .popup-button[aria-label] {
+    position: relative;
+}
+
+/* Stile per bottoni più piccoli (se presenti) */
+.cta-button.small, .package-button.small, .popup-button.small {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+/* Stile per bottoni più grandi (se presenti) */
+.cta-button.large, .package-button.large, .popup-button.large {
+    font-size: 1.4rem;
+    padding: 18px 36px;
+}

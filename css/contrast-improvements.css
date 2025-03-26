@@ -1,0 +1,146 @@
+/* Miglioramenti di contrasto e leggibilità */
+
+/* 1. Popup promozionale (WELCOME15) */
+.popup-content {
+    background-color: #f9f9f9; /* Sfondo leggermente più scuro per aumentare il contrasto */
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.popup-content p {
+    color: #333333; /* Testo più scuro per maggiore contrasto (era #333) */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    text-shadow: none; /* Rimuove eventuali ombre che potrebbero ridurre il contrasto */
+}
+
+.popup-content h2 {
+    color: #222222; /* Titolo più scuro per maggiore contrasto */
+    font-weight: 700;
+    text-shadow: none;
+}
+
+#exit-popup .popup-content p {
+    color: #222222; /* Testo ancora più scuro nel popup di uscita */
+    font-weight: 600; /* Peso maggiore per migliorare la leggibilità */
+}
+
+/* 2. Sezione "Domande Frequenti" */
+#faq .section-title {
+    color: #111111; /* Titolo quasi nero per massimo contrasto (era probabilmente #333) */
+    font-weight: 700;
+}
+
+.faq-question h3 {
+    color: #222222; /* Testo domande più scuro */
+    font-weight: 600;
+}
+
+.faq-answer p {
+    color: #333333; /* Testo risposte più scuro */
+    font-weight: 500;
+}
+
+/* 3. Sezione "Benefici principali" */
+#benefici .section-title {
+    color: #111111; /* Titolo quasi nero per massimo contrasto */
+    font-weight: 700;
+}
+
+.benefit-card {
+    background-color: #ffffff; /* Sfondo bianco puro per massimizzare il contrasto */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-card h3 {
+    color: #111111; /* Titolo beneficio quasi nero */
+    font-weight: 700;
+}
+
+.benefit-card p {
+    color: #333333; /* Testo beneficio più scuro */
+    font-weight: 500;
+}
+
+/* Per i box neri nella sezione benefici */
+.dark-bg .benefit-card p {
+    color: #ffffff; /* Testo bianco puro su sfondo scuro */
+}
+
+/* 4. Sezione "Offerta" (Countdown + Prezzo) */
+.countdown-container {
+    background-color: rgba(0, 0, 0, 0.25); /* Sfondo leggermente più scuro per aumentare il contrasto */
+}
+
+.countdown-label {
+    color: #ffffff; /* Testo bianco puro */
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Ombra sottile per migliorare la leggibilità su sfondi variabili */
+}
+
+#countdown, #countdown-timer, #popup-countdown {
+    color: #ffffff; /* Testo bianco puro */
+    font-weight: 800; /* Peso maggiore per migliorare la leggibilità */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-unit {
+    background-color: rgba(0, 0, 0, 0.4); /* Sfondo più scuro per le unità di tempo */
+}
+
+.countdown-value {
+    color: #ffffff; /* Testo bianco puro */
+}
+
+.countdown-label-small {
+    color: rgba(255, 255, 255, 0.9); /* Leggermente trasparente ma comunque molto leggibile */
+}
+
+/* 5. Bottoni CTA */
+.cta-button, .package-button, .popup-button {
+    background-color: #0052cc; /* Blu leggermente più scuro per migliorare il contrasto con il testo bianco */
+    color: #ffffff; /* Testo bianco puro */
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Ombra sottile per migliorare la leggibilità */
+    border: none;
+}
+
+.cta-button:hover, .package-button:hover, .popup-button:hover {
+    background-color: #003d99; /* Ancora più scuro in hover per mantenere il contrasto */
+}
+
+/* Stile specifico per il pulsante nel popup */
+.popup-button {
+    background-color: #e63946; /* Rosso per il pulsante nel popup, con buon contrasto con testo bianco */
+    color: #ffffff;
+}
+
+.popup-button:hover {
+    background-color: #c1121f; /* Rosso più scuro in hover */
+}
+
+/* Miglioramenti generali di contrasto */
+.section-title {
+    color: #111111; /* Tutti i titoli di sezione quasi neri */
+    font-weight: 700;
+}
+
+/* Miglioramenti per modalità scura e accessibilità */
+@media (prefers-color-scheme: dark) {
+    .popup-content {
+        background-color: #2a2a2a; /* Sfondo più scuro in modalità scura */
+    }
+    
+    .popup-content p, .popup-content h2 {
+        color: #ffffff; /* Testo bianco in modalità scura */
+    }
+    
+    .benefit-card, .faq-item, .review-card {
+        background-color: #2a2a2a; /* Sfondo più scuro in modalità scura */
+    }
+    
+    .benefit-card h3, .benefit-card p, .faq-question h3, .faq-answer p {
+        color: #ffffff; /* Testo bianco in modalità scura */
+    }
+}

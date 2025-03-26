@@ -1,0 +1,229 @@
+/* Evidenziazione codici sconto con elementi grafici */
+
+/* Stile base per i codici sconto */
+.discount-code {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff3a3a 0%, #ff7676 100%);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0 5px;
+    box-shadow: 0 4px 15px rgba(255, 58, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+/* Effetto brillante per i codici sconto */
+.discount-code::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(30deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(30deg);
+    }
+}
+
+/* Badge per i codici sconto */
+.discount-badge {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.discount-badge::before {
+    content: 'CODICE SCONTO';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Contenitore per i codici sconto */
+.discount-codes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+}
+
+/* Stile per il codice WELCOME15 */
+.discount-code.welcome {
+    background: linear-gradient(135deg, #0066ff 0%, #5e9eff 100%);
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Stile per il codice EXTRA10 */
+.discount-code.extra {
+    background: linear-gradient(135deg, #ff9500 0%, #ffb144 100%);
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+}
+
+/* Icona per i codici sconto */
+.discount-code-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+/* Tooltip per i codici sconto */
+.discount-code-tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+.discount-code-tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10;
+}
+
+.discount-code-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 10;
+}
+
+.discount-code-tooltip:hover::before,
+.discount-code-tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animazione di pulsazione per i codici sconto */
+@keyframes pulse-discount {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.discount-code.pulse {
+    animation: pulse-discount 2s infinite;
+}
+
+/* Stile per il pulsante "Copia codice" */
+.copy-code-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s;
+}
+
+.copy-code-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Stile per il messaggio di conferma copia */
+.copy-confirmation {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-confirmation.show {
+    opacity: 1;
+}
+
+/* Responsive design per i codici sconto */
+@media (max-width: 576px) {
+    .discount-code {
+        font-size: 1rem;
+        padding: 8px 14px;
+    }
+    
+    .discount-codes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Stile per la sezione dedicata ai codici sconto */
+.discount-section {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.discount-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.discount-section p {
+    margin-bottom: 25px;
+    color: #666;
+}

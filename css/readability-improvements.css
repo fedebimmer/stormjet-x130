@@ -1,0 +1,148 @@
+/* Miglioramenti per la leggibilità dei testi e contrasto */
+
+/* Stili generali per migliorare la leggibilità */
+body {
+    color: #333; /* Colore testo base più scuro */
+    line-height: 1.7; /* Aumentato line-height per migliore leggibilità */
+}
+
+/* Miglioramento popup e testi */
+.popup-content p {
+    color: #333; /* Testo più scuro nei popup */
+    font-size: 1.2rem; /* Dimensione testo aumentata */
+    line-height: 1.6; /* Spaziatura tra righe aumentata */
+    padding: 20px 25px; /* Padding aumentato */
+    font-weight: 500; /* Peso font aumentato per migliore leggibilità */
+}
+
+.popup-content h2 {
+    font-size: 2rem; /* Titolo popup più grande */
+    padding: 25px 20px; /* Padding aumentato */
+}
+
+.close-popup {
+    color: #333; /* X di chiusura più scura */
+    font-size: 1.8rem; /* Dimensione aumentata */
+    font-weight: bold; /* Peso aumentato */
+}
+
+/* Miglioramento leggibilità recensioni */
+.review-card p {
+    color: #333; /* Testo recensioni più scuro */
+    font-size: 1.1rem; /* Dimensione testo aumentata */
+    line-height: 1.7; /* Spaziatura tra righe aumentata */
+    font-weight: 500; /* Peso font aumentato */
+}
+
+/* Miglioramento countdown */
+#countdown, #countdown-timer, #popup-countdown {
+    background-color: rgba(0, 0, 0, 0.2); /* Sfondo più scuro */
+    color: #fff; /* Testo bianco per contrasto */
+    font-weight: 700; /* Peso font aumentato */
+    padding: 15px 20px; /* Padding aumentato */
+    border-radius: 10px; /* Bordi arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per evidenziare */
+    display: inline-block; /* Assicura che il box si adatti al contenuto */
+}
+
+.countdown-label {
+    font-size: 1.3rem; /* Etichetta countdown più grande */
+    font-weight: 700; /* Peso font aumentato */
+    margin-bottom: 15px; /* Margine aumentato */
+    color: #fff; /* Assicura contrasto su sfondo scuro */
+}
+
+/* Miglioramento codici sconto */
+.discount-code {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff3a3a 0%, #ff7676 100%);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 5px;
+    box-shadow: 0 4px 8px rgba(255, 58, 58, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.discount-code::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(30deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(30deg);
+    }
+}
+
+/* Miglioramento leggibilità pacchetti */
+.package h3 {
+    font-size: 1.7rem; /* Titolo pacchetto più grande */
+    margin-bottom: 20px; /* Margine aumentato */
+}
+
+.package-price .current {
+    font-size: 2.2rem; /* Prezzo corrente più grande */
+    font-weight: 800; /* Peso font aumentato */
+    color: #0066ff; /* Colore blu per evidenziare */
+}
+
+.package-price .original {
+    font-size: 1.3rem; /* Prezzo originale più grande */
+    color: #777; /* Grigio più scuro */
+}
+
+.package-features li {
+    font-size: 1.1rem; /* Testo feature più grande */
+    margin-bottom: 12px; /* Margine aumentato */
+    color: #333; /* Testo più scuro */
+}
+
+/* Miglioramento CTA buttons */
+.cta-button, .package-button, .popup-button {
+    font-size: 1.2rem; /* Testo bottone più grande */
+    font-weight: 700; /* Peso font aumentato */
+    padding: 15px 30px; /* Padding aumentato */
+    border-radius: 30px; /* Bordi arrotondati */
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3); /* Ombra per evidenziare */
+    transition: all 0.3s ease; /* Transizione fluida */
+}
+
+.cta-button:hover, .package-button:hover, .popup-button:hover {
+    transform: translateY(-3px); /* Effetto hover */
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4); /* Ombra aumentata in hover */
+}
+
+/* Miglioramento notifiche */
+.notification-popup {
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Ombra aumentata */
+    padding: 20px; /* Padding aumentato */
+}
+
+.notification-content {
+    font-size: 1rem; /* Testo notifica più grande */
+    color: #333; /* Testo più scuro */
+    font-weight: 500; /* Peso font aumentato */
+}
+
+/* Miglioramento badge */
+.popular-badge, .best-value-badge {
+    font-size: 1rem; /* Testo badge più grande */
+    font-weight: 700; /* Peso font aumentato */
+    padding: 8px 15px; /* Padding aumentato */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per evidenziare */
+}

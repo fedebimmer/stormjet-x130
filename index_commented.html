@@ -1,3 +1,18 @@
+/**
+ * File: index.html
+ * Descrizione: Landing page ottimizzata per StormJet X130
+ * 
+ * Modifiche principali:
+ * - Migliorata leggibilità dei testi con maggiore contrasto
+ * - Ottimizzati font e dimensioni per tutti i dispositivi
+ * - Implementati CTA funzionanti con redirect
+ * - Migliorata struttura delle offerte e tabelle comparative
+ * - Ottimizzato temporizzatore countdown
+ * - Migliorata leggibilità delle testimonianze
+ * - Implementato responsive design completo
+ * - Evidenziati codici sconto con elementi grafici
+ */
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -5,20 +20,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StormJet X130 - Il turbo ventilatore più potente sul mercato</title>
     <meta name="description" content="StormJet X130: mini turbo ventilatore da 130.000 RPM per pulizia auto, casa ed elettronica. Potente, ricaricabile, portatile.">
+    
     <!-- CSS di base -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mobile-optimizations.css">
     <link rel="stylesheet" href="css/conversion-elements.css">
     
     <!-- CSS ottimizzati -->
-    <link rel="stylesheet" href="css/readability-improvements.css">
-    <link rel="stylesheet" href="css/font-optimizations.css">
-    <link rel="stylesheet" href="css/offers-structure.css">
-    <link rel="stylesheet" href="css/countdown-timer.css">
-    <link rel="stylesheet" href="css/testimonials.css">
-    <link rel="stylesheet" href="css/responsive-design.css">
-    <link rel="stylesheet" href="css/discount-codes.css">
-    <link rel="stylesheet" href="css/responsive-fixes.css">
+    <link rel="stylesheet" href="css/readability-improvements.css"> <!-- Miglioramento leggibilità e contrasto -->
+    <link rel="stylesheet" href="css/font-optimizations.css"> <!-- Ottimizzazione font e dimensioni -->
+    <link rel="stylesheet" href="css/offers-structure.css"> <!-- Miglioramento struttura offerte -->
+    <link rel="stylesheet" href="css/countdown-timer.css"> <!-- Ottimizzazione countdown -->
+    <link rel="stylesheet" href="css/testimonials.css"> <!-- Miglioramento testimonianze -->
+    <link rel="stylesheet" href="css/responsive-design.css"> <!-- Design responsive completo -->
+    <link rel="stylesheet" href="css/discount-codes.css"> <!-- Evidenziazione codici sconto -->
+    <link rel="stylesheet" href="css/responsive-fixes.css"> <!-- Fix specifici per responsività -->
     
     <!-- Font e icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -31,6 +47,7 @@
             <div class="logo">
                 <h1>StormJet<span>X130</span></h1>
             </div>
+            <!-- Pulsante menu mobile -->
             <div class="mobile-menu-btn">
                 <span></span>
                 <span></span>
@@ -54,20 +71,25 @@
             <div class="hero-content">
                 <h1>Il turbo ventilatore da 130.000 RPM che sostituisce il compressore</h1>
                 <h2>Potente. Ricaricabile. Ovunque.</h2>
+                <!-- Prezzo con sconto -->
                 <div class="price-container">
                     <div class="original-price">€149,99</div>
                     <div class="discount-badge">-67%</div>
                     <div class="current-price">€49,99</div>
                 </div>
+                <!-- CTA principale con link funzionante -->
                 <a href="checkout.html?package=single&price=49.99&id=SJ130-1" class="cta-button pulse">Acquista ora</a>
+                <!-- Countdown visibile -->
                 <div class="limited-offer">
                     <i class="fas fa-clock"></i> Offerta limitata: scade tra <span id="countdown">05:59:59</span>
                 </div>
             </div>
             <div class="hero-image">
+                <!-- Immagine prodotto con animazione -->
                 <img src="images/optimized/product_1.webp" alt="StormJet X130 Turbo Ventilatore" class="rotating-product">
             </div>
         </div>
+        <!-- Notifica visualizzatori -->
         <div class="stock-notification">
             <i class="fas fa-users"></i> <span id="viewers">27</span> persone stanno visualizzando questo prodotto
         </div>
@@ -78,16 +100,19 @@
         <div class="container">
             <h2 class="section-title">Benefici principali</h2>
             <div class="benefits-grid">
+                <!-- Beneficio 1 -->
                 <div class="benefit-card">
                     <div class="benefit-icon">💨</div>
                     <h3>Potenza estrema</h3>
                     <p>130.000 RPM di potenza, equivalente a un compressore professionale in un dispositivo tascabile.</p>
                 </div>
+                <!-- Beneficio 2 -->
                 <div class="benefit-card">
                     <div class="benefit-icon">🔋</div>
                     <h3>Ricarica USB-C</h3>
                     <p>Fino a 60 minuti di utilizzo continuo con una singola carica. Compatibile con qualsiasi caricatore USB-C.</p>
                 </div>
+                <!-- Beneficio 3 -->
                 <div class="benefit-card">
                     <div class="benefit-icon">🌍</div>
                     <h3>Zero sprechi</h3>
@@ -101,12 +126,14 @@
     <section id="demo" class="section-padding dark-bg">
         <div class="container">
             <h2 class="section-title">Guarda StormJet X130 in azione</h2>
+            <!-- Video ottimizzato -->
             <div class="video-container">
                 <video controls>
                     <source src="videos/video_aliexpress_optimized.mp4" type="video/mp4">
                     Il tuo browser non supporta il tag video.
                 </video>
             </div>
+            <!-- Caratteristiche principali -->
             <div class="features-list">
                 <div class="feature">
                     <i class="fas fa-wind"></i>
@@ -128,10 +155,11 @@
         </div>
     </section>
 
-    <!-- Recensioni Section -->
+    <!-- Recensioni Section - Migliorata leggibilità -->
     <section id="recensioni" class="section-padding">
         <div class="container">
             <h2 class="section-title">Cosa dicono i nostri clienti</h2>
+            <!-- Riepilogo valutazioni -->
             <div class="rating-summary">
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -143,6 +171,7 @@
                 <div class="rating">4.8/5</div>
                 <div class="reviews-count">basato su 200+ recensioni</div>
             </div>
+            <!-- Recensioni con maggiore leggibilità -->
             <div class="reviews-slider">
                 <div class="review-card">
                     <div class="reviewer">
@@ -199,11 +228,12 @@
         </div>
     </section>
 
-    <!-- Codici Sconto Section (aggiunta dinamicamente via JS) -->
+    <!-- Codici Sconto Section - Nuova sezione dedicata -->
     <div class="discount-section">
         <h2>Codici Sconto Esclusivi</h2>
         <p>Utilizza questi codici durante il checkout per ottenere vantaggi esclusivi:</p>
         <div class="discount-codes-container">
+            <!-- Codice WELCOME15 evidenziato -->
             <div class="discount-badge">
                 <span class="discount-code welcome">
                     <i class="fas fa-tag discount-code-icon"></i>WELCOME15
@@ -212,6 +242,7 @@
                 </span>
                 <p>15% di sconto sul primo ordine</p>
             </div>
+            <!-- Codice EXTRA10 evidenziato -->
             <div class="discount-badge">
                 <span class="discount-code extra">
                     <i class="fas fa-gift discount-code-icon"></i>EXTRA10
@@ -223,10 +254,11 @@
         </div>
     </div>
 
-    <!-- Offerta Limitata Section -->
+    <!-- Offerta Limitata Section - Migliorata struttura offerte -->
     <section id="acquista" class="section-padding dark-bg">
         <div class="container">
             <h2 class="section-title">Offerta Limitata</h2>
+            <!-- Countdown ottimizzato e visibile -->
             <div class="countdown-container">
                 <div class="countdown-label">L'offerta scade tra:</div>
                 <div id="countdown-timer" class="countdown-timer">
@@ -246,7 +278,9 @@
                     </div>
                 </div>
             </div>
+            <!-- Pacchetti offerta migliorati e responsive -->
             <div class="packages-container">
+                <!-- Pacchetto 1 -->
                 <div class="package">
                     <h3>1 StormJet X130</h3>
                     <div class="package-price">
@@ -260,8 +294,10 @@
                         <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
                         <li><i class="fas fa-times"></i> Spedizione gratuita</li>
                     </ul>
+                    <!-- CTA con link funzionante -->
                     <a href="checkout.html?package=single&price=49.99&id=SJ130-1" class="package-button" data-package-id="package-1" data-package-name="1 StormJet X130" data-package-price="49.99">Acquista ora</a>
                 </div>
+                <!-- Pacchetto 2 (popolare) -->
                 <div class="package popular">
                     <div class="popular-badge">PIÙ POPOLARE</div>
                     <h3>2 StormJet X130</h3>
@@ -277,8 +313,10 @@
                         <li><i class="fas fa-check"></i> Garanzia 2 anni</li>
                         <li><i class="fas fa-check"></i> Spedizione gratuita</li>
                     </ul>
+                    <!-- CTA con link funzionante -->
                     <a href="checkout.html?package=double&price=89.98&id=SJ130-2" class="package-button pulse" data-package-id="package-2" data-package-name="2 StormJet X130" data-package-price="89.98">Acquista ora</a>
                 </div>
+                <!-- Pacchetto 3 (miglior valore) -->
                 <div class="package">
                     <div class="best-value-badge">MIGLIOR VALORE</div>
                     <h3>3 StormJet X130</h3>
@@ -295,9 +333,11 @@
                         <li><i class="fas fa-check"></i> Spedizione gratuita</li>
                         <li><i class="fas fa-check"></i> Ugello di precisione extra</li>
                     </ul>
+                    <!-- CTA con link funzionante -->
                     <a href="checkout.html?package=triple&price=119.97&id=SJ130-3" class="package-button" data-package-id="package-3" data-package-name="3 StormJet X130" data-package-price="119.97">Acquista ora</a>
                 </div>
             </div>
+            <!-- Garanzia di rimborso -->
             <div class="money-back-guarantee">
                 <i class="fas fa-shield-alt guarantee-icon"></i> Garanzia di rimborso di 30 giorni. Se non sei soddisfatto, ti rimborsiamo completamente.
             </div>
@@ -309,6 +349,7 @@
         <div class="container">
             <h2 class="section-title">Domande Frequenti</h2>
             <div class="faq-container">
+                <!-- FAQ 1 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Quanto dura la batteria?</h3>
@@ -318,6 +359,7 @@
                         <p>La batteria del StormJet X130 dura fino a 60 minuti di utilizzo continuo a potenza media. A potenza massima, l'autonomia è di circa 30 minuti. La ricarica completa richiede circa 1 ora con un caricatore standard USB-C.</p>
                     </div>
                 </div>
+                <!-- FAQ 2 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Posso usarlo su componenti elettronici?</h3>
@@ -327,6 +369,7 @@
                         <p>Assolutamente sì! Il StormJet X130 è perfetto per la pulizia di componenti elettronici come tastiere, PC, fotocamere e altri dispositivi. La regolazione della potenza ti permette di adattare il flusso d'aria in base alla delicatezza dei componenti.</p>
                     </div>
                 </div>
+                <!-- FAQ 3 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Quali sono i tempi di consegna?</h3>
@@ -336,6 +379,7 @@
                         <p>Spediamo entro 24 ore dall'ordine. I tempi di consegna sono di 2-3 giorni lavorativi per l'Italia. Per ordini superiori a €100, la spedizione è gratuita. Tutti gli ordini sono tracciabili e riceverai un codice di tracciamento via email.</p>
                     </div>
                 </div>
+                <!-- FAQ 4 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Che tipo di garanzia offrite?</h3>
@@ -389,7 +433,7 @@
         </div>
     </footer>
 
-    <!-- Popup Offerta -->
+    <!-- Popup Offerta - Migliorato contrasto e leggibilità -->
     <div id="offer-popup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
@@ -404,7 +448,7 @@
         </div>
     </div>
 
-    <!-- Exit Popup -->
+    <!-- Exit Popup - Migliorato contrasto e leggibilità -->
     <div id="exit-popup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
@@ -415,7 +459,7 @@
         </div>
     </div>
 
-    <!-- Notification Popup -->
+    <!-- Notification Popup - Migliorato contrasto e leggibilità -->
     <div id="notification-popup" class="notification-popup">
         <div class="notification-content">
             <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Cliente">
@@ -430,8 +474,8 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/conversion-elements.js"></script>
-    <script src="js/cta-handlers.js"></script>
-    <script src="js/countdown-discount.js"></script>
-    <script src="js/navigation-fixes.js"></script>
+    <script src="js/cta-handlers.js"></script> <!-- Gestione CTA funzionanti -->
+    <script src="js/countdown-discount.js"></script> <!-- Countdown e codici sconto -->
+    <script src="js/navigation-fixes.js"></script> <!-- Fix navigazione -->
 </body>
 </html>

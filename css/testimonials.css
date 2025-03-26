@@ -1,0 +1,215 @@
+/* Miglioramento leggibilità testimonianze */
+
+/* Stile base per il container delle recensioni */
+.reviews-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+/* Stile per ogni card di recensione */
+.review-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effetto hover per le card */
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Stile per il contenitore del recensore */
+.reviewer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Immagine del recensore */
+.reviewer img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Informazioni del recensore */
+.reviewer-info {
+    flex: 1;
+}
+
+/* Nome del recensore */
+.reviewer-info h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+/* Stelle di valutazione */
+.reviewer-info .stars {
+    color: #ffb900;
+    font-size: 1rem;
+    display: flex;
+    gap: 2px;
+}
+
+/* Testo della recensione */
+.review-card p {
+    color: #333; /* Testo più scuro per migliore leggibilità */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    font-weight: 500; /* Peso font aumentato per migliore leggibilità */
+}
+
+/* Virgolette decorative */
+.review-card::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 8rem;
+    color: rgba(0, 102, 255, 0.05);
+    font-family: Georgia, serif;
+    line-height: 1;
+    z-index: 0;
+}
+
+/* Badge di verifica */
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(0, 102, 255, 0.1);
+    color: #0066ff;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.verified-badge i {
+    font-size: 0.9rem;
+}
+
+/* Data della recensione */
+.review-date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 5px;
+}
+
+/* Stile per la sezione di riepilogo delle recensioni */
+.rating-summary {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Stelle nella sezione di riepilogo */
+.rating-summary .stars {
+    color: #ffb900;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Punteggio di valutazione */
+.rating {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Numero di recensioni */
+.reviews-count {
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Responsive design per tablet */
+@media (max-width: 992px) {
+    .reviews-slider {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .review-card {
+        padding: 25px;
+    }
+    
+    .review-card p {
+        font-size: 1rem;
+    }
+    
+    .reviewer img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .reviewer-info h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive design per mobile */
+@media (max-width: 576px) {
+    .reviews-slider {
+        grid-template-columns: 1fr;
+    }
+    
+    .rating-summary .stars {
+        font-size: 1.5rem;
+    }
+    
+    .rating {
+        font-size: 2rem;
+    }
+    
+    .reviews-count {
+        font-size: 1rem;
+    }
+}
+
+/* Animazione per le recensioni */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.review-card {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.review-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.review-card:nth-child(3) {
+    animation-delay: 0.4s;
+}

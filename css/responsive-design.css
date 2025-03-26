@@ -1,0 +1,307 @@
+/* Responsive design completo */
+
+/* Variabili per i breakpoint */
+:root {
+    --breakpoint-xs: 576px;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 992px;
+    --breakpoint-lg: 1200px;
+}
+
+/* Regole generali per il responsive design */
+html {
+    font-size: 16px;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Header responsive */
+@media (max-width: 992px) {
+    header .container {
+        padding: 10px 15px;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #fff;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+        padding: 80px 20px 20px;
+        overflow-y: auto;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 1002;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* Hero section responsive */
+@media (max-width: 992px) {
+    #hero {
+        padding: 60px 0;
+    }
+    
+    #hero .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+        margin: 0 auto;
+    }
+    
+    .hero-image {
+        order: 1;
+        margin: 0 auto;
+        max-width: 300px;
+    }
+    
+    .price-container {
+        justify-content: center;
+    }
+    
+    .limited-offer {
+        justify-content: center;
+    }
+}
+
+/* Benefici section responsive */
+@media (max-width: 992px) {
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefit-card {
+        padding: 20px;
+    }
+}
+
+/* Video demo section responsive */
+@media (max-width: 992px) {
+    .video-container {
+        max-width: 100%;
+    }
+    
+    .features-list {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Recensioni section responsive */
+@media (max-width: 992px) {
+    .reviews-slider {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* Offerta limitata section responsive */
+@media (max-width: 992px) {
+    .countdown-container {
+        max-width: 100%;
+    }
+}
+
+/* FAQ section responsive */
+@media (max-width: 992px) {
+    .faq-item {
+        padding: 15px;
+    }
+    
+    .faq-question {
+        font-size: 1.1rem;
+    }
+}
+
+/* Popup responsive */
+@media (max-width: 576px) {
+    .popup-content {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .popup-content h2 {
+        font-size: 1.5rem;
+        padding: 15px;
+    }
+    
+    .popup-content p {
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .popup-button {
+        margin: 0 15px 15px;
+    }
+}
+
+/* Notification popup responsive */
+@media (max-width: 576px) {
+    .notification-popup {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        bottom: 10px;
+        padding: 10px;
+    }
+}
+
+/* Bottone "Torna su" responsive */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #0066ff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+    .back-to-top {
+        width: 35px;
+        height: 35px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Ottimizzazioni per dispositivi ad alta densità di pixel */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-image img, .benefit-icon img, .reviewer img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Ottimizzazioni per dispositivi con notch */
+@supports (padding-top: env(safe-area-inset-top)) {
+    header {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .back-to-top {
+        bottom: calc(20px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Ottimizzazioni per orientamento landscape su mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-padding {
+        padding: 40px 0;
+    }
+}
+
+/* Ottimizzazioni per schermi molto grandi */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Ottimizzazioni per stampa */
+@media print {
+    header, .cta-button, .video-container, .back-to-top {
+        display: none !important;
+    }
+    
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .section-padding {
+        padding: 20px 0 !important;
+    }
+}

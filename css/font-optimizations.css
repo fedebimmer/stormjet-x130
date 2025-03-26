@@ -1,0 +1,156 @@
+/* Ottimizzazione font e dimensioni per tutti i dispositivi */
+
+/* Font base ottimizzati per tutti i dispositivi */
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px; /* Base font size */
+}
+
+/* Ottimizzazione titoli */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+    letter-spacing: -0.02em; /* Leggero kerning negativo per titoli */
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Responsive font size */
+    margin-bottom: 1.5rem;
+}
+
+.hero-content h2 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive font size */
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
+    margin-bottom: 2.5rem;
+}
+
+/* Ottimizzazione testo paragrafi */
+p {
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Responsive font size */
+    line-height: 1.7;
+}
+
+/* Ottimizzazione font per dispositivi mobili */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Leggermente più piccolo su mobile */
+    }
+    
+    .benefit-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+        font-size: 1rem;
+    }
+    
+    .review-card p {
+        font-size: 1rem;
+    }
+    
+    .package h3 {
+        font-size: 1.4rem;
+    }
+    
+    .package-features li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Ottimizzazione font per tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Ottimizzazione font per schermi grandi */
+@media (min-width: 1025px) {
+    body {
+        font-size: 17px; /* Leggermente più grande su desktop */
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ottimizzazione font per popup */
+.popup-content h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.popup-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* Ottimizzazione font per bottoni */
+.cta-button, .package-button, .popup-button {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    padding: clamp(10px, 3vw, 15px) clamp(20px, 5vw, 30px);
+}
+
+/* Ottimizzazione font per countdown */
+#countdown, #countdown-timer, #popup-countdown {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.countdown-label {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+/* Ottimizzazione font per prezzi */
+.current-price, .package-price .current {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.original-price, .package-price .original {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+}
+
+/* Ottimizzazione font per codici sconto */
+.discount-code {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+/* Ottimizzazione spaziatura per tutti i dispositivi */
+.section-padding {
+    padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.container {
+    padding: 0 clamp(15px, 3vw, 30px);
+}
+
+/* Ottimizzazione leggibilità su schermi ad alta densità */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Ottimizzazione per modalità scura */
+@media (prefers-color-scheme: dark) {
+    body {
+        font-weight: 400; /* Leggermente più leggero in dark mode per evitare testo troppo pesante */
+    }
+}

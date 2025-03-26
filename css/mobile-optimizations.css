@@ -1,0 +1,323 @@
+/* Mobile Optimizations */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .current-price {
+        font-size: 2.2rem;
+    }
+    
+    .btn-cta {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    header .container {
+        padding: 10px 20px;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: #fff;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 20px;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 1002;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    #hero {
+        padding: 60px 0;
+    }
+    
+    #hero .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .trust-badges {
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .use-cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .comparison-table {
+        overflow-x: auto;
+    }
+    
+    .comparison-table table {
+        min-width: 600px;
+    }
+    
+    .review-card {
+        padding: 20px;
+    }
+    
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .bundle-option label {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .bundle-price {
+        margin: 10px 0;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .price-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .original-price {
+        font-size: 1.2rem;
+    }
+    
+    .current-price {
+        font-size: 1.8rem;
+    }
+    
+    .btn-cta {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    
+    .trust-badges {
+        flex-wrap: wrap;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .video-container {
+        border-radius: 10px;
+    }
+    
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .play-button i {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-container {
+        margin-bottom: 20px;
+    }
+    
+    .countdown-title {
+        font-size: 1rem;
+    }
+    
+    #countdown {
+        gap: 5px;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+    
+    .bundle-offers {
+        padding: 20px;
+    }
+    
+    .bundle-option {
+        padding: 15px;
+    }
+    
+    .bundle-name {
+        font-size: 1rem;
+    }
+    
+    .bundle-price {
+        font-size: 1.1rem;
+    }
+    
+    .bundle-save {
+        font-size: 0.8rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+    
+    .payment-icons {
+        justify-content: center;
+    }
+    
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trust-item {
+        padding: 15px;
+    }
+    
+    #final-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    #final-cta p {
+        font-size: 1rem;
+    }
+    
+    .popup-content {
+        width: 95%;
+    }
+    
+    .popup-header {
+        padding: 15px;
+    }
+    
+    .popup-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .popup-body {
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .popup-body img {
+        width: 50%;
+        margin-bottom: 15px;
+    }
+    
+    .new-price {
+        font-size: 1.5rem;
+    }
+    
+    #back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+}

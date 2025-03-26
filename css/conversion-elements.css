@@ -4,72 +4,41 @@
     margin-bottom: 30px;
 }
 
-.countdown-title {
+.countdown-label {
     font-size: 1.2rem;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
 #countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.countdown-item {
+    display: inline-block;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     padding: 15px;
-    min-width: 80px;
-    text-align: center;
-}
-
-.countdown-value {
     font-size: 2rem;
     font-weight: 700;
-}
-
-.countdown-label {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
-.countdown-separator {
-    font-size: 2rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
+    color: #fff;
 }
 
 /* Stock Notification */
-.stock-info {
-    margin-bottom: 30px;
-}
-
-.stock-bar {
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-
-.stock-progress {
-    height: 100%;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.stock-info p {
-    font-size: 0.9rem;
+.stock-notification {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
+    gap: 10px;
+    font-size: 0.9rem;
+    z-index: 2;
 }
 
-.stock-info i {
-    color: #fff;
+.stock-notification i {
+    color: #ffb900;
 }
 
 /* Popup */
@@ -118,104 +87,59 @@
     z-index: 10;
 }
 
-.popup-header {
+.popup-content h2 {
     background: linear-gradient(135deg, #ff3a3a 0%, #ff7676 100%);
     color: #fff;
     padding: 20px;
     text-align: center;
-}
-
-.popup-badge {
-    display: inline-block;
-    background-color: #fff;
-    color: #ff3a3a;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin: 0;
 }
 
-.popup-header h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.popup-body {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.popup-body img {
-    width: 40%;
-    max-width: 150px;
-}
-
-.popup-offer {
-    flex: 1;
-}
-
-.popup-offer p {
-    margin-bottom: 10px;
-    font-size: 1rem;
+.popup-content p {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
 .popup-price {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin: 0 0 20px;
 }
 
-.old-price {
-    text-decoration: line-through;
-    color: #999;
-    font-size: 1rem;
-}
-
-.new-price {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #222;
-}
-
-.popup-discount {
-    display: inline-block;
+.popup-button {
+    display: block;
     background-color: #ff3a3a;
     color: #fff;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.btn-popup {
-    display: inline-block;
-    background-color: #ff3a3a;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 30px;
+    text-align: center;
     font-weight: 700;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
+    margin: 0 20px 20px;
 }
 
-.btn-popup:hover {
+.popup-button:hover {
     background-color: #e62e2e;
 }
 
-/* Exit Intent Popup */
-.exit-intent-popup {
-    display: none;
+.popup-timer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    padding-bottom: 20px;
 }
 
-/* Social Proof Notification */
-.social-proof {
+/* Notification Popup */
+.notification-popup {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     background-color: #fff;
     border-radius: 10px;
     padding: 15px;
@@ -223,10 +147,9 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    max-width: 300px;
-    z-index: 999;
-    animation: slideIn 0.5s forwards, slideOut 0.5s forwards 5s;
-    transform: translateX(-120%);
+    z-index: 1500;
+    animation: slideIn 0.5s forwards;
+    transform: translateX(120%);
 }
 
 @keyframes slideIn {
@@ -237,66 +160,22 @@
 
 @keyframes slideOut {
     to {
-        transform: translateX(-120%);
+        transform: translateX(120%);
     }
 }
 
-.social-proof-avatar {
-    width: 50px;
-    height: 50px;
+.notification-content {
+    font-size: 0.9rem;
+}
+
+.notification-content img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.social-proof-content h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.social-proof-content p {
-    font-size: 0.8rem;
-    color: #666;
-}
-
-.social-proof-time {
-    font-size: 0.7rem;
-    color: #999;
-    margin-top: 5px;
-}
-
-/* Back to Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #0066ff;
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s;
-    z-index: 999;
-    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
-}
-
-#back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-#back-to-top:hover {
-    background-color: #0052cc;
-    transform: translateY(-5px);
-}
-
-/* Pulse Animation for CTA Buttons */
+/* Pulse Animation */
 .pulse {
     animation: pulse 2s infinite;
 }
@@ -311,43 +190,6 @@
     100% {
         transform: scale(1);
     }
-}
-
-/* Floating Notification */
-.floating-notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    z-index: 998;
-    display: none;
-}
-
-.floating-notification-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.floating-notification-title {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.close-notification {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #666;
-}
-
-.floating-notification-content {
-    font-size: 0.9rem;
-    color: #666;
 }
 
 /* Highlight Animation */

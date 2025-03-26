@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mobile-optimizations.css">
     <link rel="stylesheet" href="css/conversion-elements.css">
+    <link rel="stylesheet" href="css/responsive-fixes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header e Navigazione -->
@@ -16,6 +18,11 @@
         <div class="container">
             <div class="logo">
                 <h1>StormJet<span>X130</span></h1>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
             <nav>
                 <ul>
@@ -38,7 +45,7 @@
                 <div class="price-container">
                     <div class="original-price">€149,99</div>
                     <div class="discount-badge">-67%</div>
-                    <div class="current-price">€59,99</div>
+                    <div class="current-price">€49,99</div>
                 </div>
                 <a href="#acquista" class="cta-button pulse">Acquista ora</a>
                 <div class="limited-offer">
@@ -46,7 +53,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/product_1.png" alt="StormJet X130 Turbo Ventilatore" class="rotating-product">
+                <img src="images/optimized/product_1.webp" alt="StormJet X130 Turbo Ventilatore" class="rotating-product">
             </div>
         </div>
         <div class="stock-notification">
@@ -83,8 +90,8 @@
         <div class="container">
             <h2 class="section-title">Guarda StormJet X130 in azione</h2>
             <div class="video-container">
-                <video controls autoplay muted loop>
-                    <source src="videos/video_aliexpress.mp4" type="video/mp4">
+                <video controls>
+                    <source src="videos/video_aliexpress_optimized.mp4" type="video/mp4">
                     Il tuo browser non supporta il tag video.
                 </video>
             </div>
@@ -190,7 +197,7 @@
                     <h3>1 StormJet X130</h3>
                     <div class="package-price">
                         <div class="original">€149,99</div>
-                        <div class="current">€59,99</div>
+                        <div class="current">€49,99</div>
                     </div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> 1 StormJet X130</li>
@@ -206,8 +213,8 @@
                     <h3>2 StormJet X130</h3>
                     <div class="package-price">
                         <div class="original">€299,98</div>
-                        <div class="current">€109,98</div>
-                        <div class="per-unit">€54,99 per unità</div>
+                        <div class="current">€89,98</div>
+                        <div class="per-unit">€44,99 per unità</div>
                     </div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> 2 StormJet X130</li>
@@ -223,8 +230,8 @@
                     <h3>3 StormJet X130</h3>
                     <div class="package-price">
                         <div class="original">€449,97</div>
-                        <div class="current">€149,97</div>
-                        <div class="per-unit">€49,99 per unità</div>
+                        <div class="current">€119,97</div>
+                        <div class="per-unit">€39,99 per unità</div>
                     </div>
                     <ul class="package-features">
                         <li><i class="fas fa-check"></i> 3 StormJet X130</li>
@@ -328,7 +335,7 @@
             <p>Usa il codice <strong>EXTRA10</strong> e ricevi ACCESSORI EXTRA GRATUITI!</p>
             <div class="popup-price">
                 <div class="original-price">€149,99</div>
-                <div class="current-price">€59,99</div>
+                <div class="current-price">€49,99</div>
             </div>
             <a href="#acquista" class="popup-button">Approfitta ora</a>
             <div class="popup-timer">Offerta scade tra: <span id="popup-countdown">05:59:59</span></div>
@@ -357,5 +364,6 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/conversion-elements.js"></script>
+    <script src="js/navigation-fixes.js"></script>
 </body>
 </html>

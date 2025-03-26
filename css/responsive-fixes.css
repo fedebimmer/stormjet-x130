@@ -1,0 +1,265 @@
+/* Miglioramenti per la responsività e compatibilità cross-browser */
+
+/* Prefissi vendor per compatibilità */
+.rotating-product {
+    -webkit-animation: rotate 20s linear infinite;
+    -moz-animation: rotate 20s linear infinite;
+    -o-animation: rotate 20s linear infinite;
+    animation: rotate 20s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes rotate {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes rotate {
+    from { -o-transform: rotate(0deg); }
+    to { -o-transform: rotate(360deg); }
+}
+
+/* Miglioramenti per la visualizzazione su dispositivi mobili */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+    
+    .price-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .discount-badge {
+        margin: 5px 0;
+    }
+    
+    .benefit-card {
+        padding: 15px;
+    }
+    
+    .benefit-icon {
+        font-size: 1.8rem;
+    }
+    
+    .feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .package-features li {
+        font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+/* Fix per Safari */
+.video-container {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+}
+
+/* Fix per Firefox */
+@-moz-document url-prefix() {
+    .benefit-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Fix per IE11 */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .container {
+        display: block;
+    }
+    
+    #hero .container {
+        display: block;
+    }
+    
+    .hero-content, .hero-image {
+        width: 50%;
+        float: left;
+    }
+    
+    .benefits-grid {
+        display: block;
+    }
+    
+    .benefit-card {
+        width: 30%;
+        float: left;
+        margin: 0 1.5%;
+    }
+    
+    .reviews-slider {
+        display: block;
+    }
+    
+    .review-card {
+        width: 30%;
+        float: left;
+        margin: 0 1.5%;
+    }
+    
+    .packages-container {
+        display: block;
+    }
+    
+    .package {
+        width: 30%;
+        float: left;
+        margin: 0 1.5%;
+    }
+    
+    /* Clearfix per IE */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}
+
+/* Miglioramenti per la visualizzazione su tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .packages-container {
+        justify-content: space-around;
+    }
+    
+    .package {
+        width: 45%;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+}
+
+/* Fix per dispositivi con display ad alta densità */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .benefit-icon, .feature i {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Miglioramenti per l'accessibilità */
+.cta-button:focus, .package-button:focus, .popup-button:focus {
+    outline: 2px solid #0066ff;
+    outline-offset: 2px;
+}
+
+/* Supporto per dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #f0f0f0;
+    }
+    
+    header, .benefit-card, .review-card, .package, .faq-item {
+        background-color: #333;
+    }
+    
+    .section-title, .hero-content h1, .benefit-card h3, .package h3 {
+        color: #f0f0f0;
+    }
+    
+    .dark-bg {
+        background-color: #0052cc;
+    }
+}
+
+/* Fix per orientamento landscape su mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    #hero {
+        padding: 30px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    
+    .price-container {
+        margin-bottom: 15px;
+    }
+    
+    .section-padding {
+        padding: 40px 0;
+    }
+}
+
+/* Miglioramenti per il caricamento lazy delle immagini */
+.lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+}
+
+/* Fix per la visualizzazione su dispositivi con notch */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+/* Miglioramenti per il contrasto e l'accessibilità */
+.footer-links a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.review-card p {
+    color: #444;
+}
+
+/* Fix per il menu mobile */
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: flex;
+        z-index: 1002;
+        width: 30px;
+        height: 25px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .mobile-menu-btn span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #333;
+        transition: all 0.3s ease;
+    }
+    
+    nav {
+        padding-top: 60px;
+    }
+}

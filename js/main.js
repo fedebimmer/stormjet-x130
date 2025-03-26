@@ -1,11 +1,22 @@
-// Main JavaScript for StormJet X130 Website
-
-// Mobile Menu Toggle
+// Correzioni per main.js
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('nav');
     
-    if (mobileMenuBtn) {
+    // Aggiungiamo il pulsante hamburger se non esiste
+    if (!mobileMenuBtn) {
+        const header = document.querySelector('header .container');
+        const hamburgerBtn = document.createElement('div');
+        hamburgerBtn.className = 'mobile-menu-btn';
+        hamburgerBtn.innerHTML = '<span></span><span></span><span></span>';
+        header.appendChild(hamburgerBtn);
+        
+        hamburgerBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    } else {
         mobileMenuBtn.addEventListener('click', function() {
             this.classList.toggle('active');
             nav.classList.toggle('active');
@@ -16,8 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav ul li a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenuBtn.classList.remove('active');
-            nav.classList.remove('active');
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileBtn) {
+                mobileBtn.classList.remove('active');
+                nav.classList.remove('active');
+            }
         });
     });
     
@@ -25,77 +39,70 @@ document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+        
+        // Aggiungiamo l'icona se non esiste
+        if (!question.querySelector('i')) {
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-chevron-down';
+            question.appendChild(icon);
+        }
+        
         question.addEventListener('click', function() {
             item.classList.toggle('active');
-            const toggle = item.querySelector('.faq-toggle i');
-            toggle.classList.toggle('fa-plus');
-            toggle.classList.toggle('fa-minus');
         });
     });
     
-    // Reviews Slider
+    // Reviews Slider - Versione semplificata
     const reviewCards = document.querySelectorAll('.review-card');
-    const dots = document.querySelectorAll('.slider-dots .dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    let currentSlide = 0;
     
-    function showSlide(index) {
+    if (reviewCards.length > 0) {
+        // Mostriamo tutte le recensioni invece di usare uno slider
         reviewCards.forEach(card => {
-            card.style.display = 'none';
-        });
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        reviewCards[index].style.display = 'block';
-        dots[index].classList.add('active');
-        currentSlide = index;
-    }
-    
-    if (reviewCards.length > 0 && dots.length > 0) {
-        showSlide(0);
-        
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function() {
-                let newIndex = currentSlide - 1;
-                if (newIndex < 0) {
-                    newIndex = reviewCards.length - 1;
-                }
-                showSlide(newIndex);
-            });
-        }
-        
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function() {
-                let newIndex = currentSlide + 1;
-                if (newIndex >= reviewCards.length) {
-                    newIndex = 0;
-                }
-                showSlide(newIndex);
-            });
-        }
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                showSlide(index);
-            });
+            card.style.display = 'block';
         });
     }
     
     // Video Play Button
-    const playButton = document.querySelector('.play-button');
     const video = document.querySelector('.video-container video');
     
-    if (playButton && video) {
-        playButton.addEventListener('click', function() {
-            video.play();
-            playButton.style.display = 'none';
-        });
-        
-        video.addEventListener('pause', function() {
+    if (video) {
+        // Aggiungiamo un pulsante play se non esiste
+        const videoContainer = document.querySelector('.video-container');
+        if (!videoContainer.querySelector('.play-button')) {
+            const playButton = document.createElement('div');
+            playButton.className = 'play-button';
+            playButton.innerHTML = '<i class="fas fa-play"></i>';
+            playButton.style.position = 'absolute';
+            playButton.style.top = '50%';
+            playButton.style.left = '50%';
+            playButton.style.transform = 'translate(-50%, -50%)';
+            playButton.style.width = '80px';
+            playButton.style.height = '80px';
+            playButton.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            playButton.style.borderRadius = '50%';
             playButton.style.display = 'flex';
-        });
+            playButton.style.justifyContent = 'center';
+            playButton.style.alignItems = 'center';
+            playButton.style.color = 'white';
+            playButton.style.fontSize = '2rem';
+            playButton.style.cursor = 'pointer';
+            playButton.style.zIndex = '10';
+            
+            videoContainer.appendChild(playButton);
+            
+            playButton.addEventListener('click', function() {
+                video.play();
+                playButton.style.display = 'none';
+            });
+            
+            video.addEventListener('pause', function() {
+                playButton.style.display = 'flex';
+            });
+            
+            video.addEventListener('ended', function() {
+                playButton.style.display = 'flex';
+            });
+        }
     }
     
     // Smooth Scroll for Anchor Links
@@ -116,84 +123,100 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Back to Top Button
-    const backToTopBtn = document.getElementById('back-to-top');
+    // Countdown Timer
+    function updateCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        const popupCountdownElement = document.getElementById('popup-countdown');
+        const countdownTimerElement = document.getElementById('countdown-timer');
+        
+        if (countdownElement || popupCountdownElement || countdownTimerElement) {
+            // Impostiamo un countdown di 6 ore
+            const hours = 5;
+            const minutes = 59;
+            const seconds = 59;
+            
+            const countdownStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (countdownElement) countdownElement.textContent = countdownStr;
+            if (popupCountdownElement) popupCountdownElement.textContent = countdownStr;
+            if (countdownTimerElement) countdownTimerElement.textContent = countdownStr;
+            
+            // In una versione reale, qui implementeremmo un vero countdown
+            // Per ora lo lasciamo statico per semplicità
+        }
+    }
     
-    if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
+    updateCountdown();
+    
+    // Notification Popup
+    const notificationPopup = document.getElementById('notification-popup');
+    if (notificationPopup) {
+        // Mostriamo la notifica dopo 5 secondi
+        setTimeout(function() {
+            notificationPopup.style.display = 'flex';
+            
+            // Nascondiamo la notifica dopo 5 secondi
+            setTimeout(function() {
+                notificationPopup.style.display = 'none';
+            }, 5000);
+        }, 5000);
+    }
+    
+    // Popup Offerta
+    const offerPopup = document.getElementById('offer-popup');
+    if (offerPopup) {
+        // Mostriamo il popup dopo 30 secondi
+        setTimeout(function() {
+            offerPopup.style.display = 'flex';
+        }, 30000);
+        
+        // Chiudiamo il popup quando si clicca sulla X
+        const closePopup = offerPopup.querySelector('.close-popup');
+        if (closePopup) {
+            closePopup.addEventListener('click', function() {
+                offerPopup.style.display = 'none';
+            });
+        }
+        
+        // Chiudiamo il popup quando si clicca fuori dal contenuto
+        offerPopup.addEventListener('click', function(e) {
+            if (e.target === offerPopup) {
+                offerPopup.style.display = 'none';
+            }
+        });
+    }
+    
+    // Exit Intent Popup
+    const exitPopup = document.getElementById('exit-popup');
+    if (exitPopup) {
+        let showOnce = false;
+        
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 0 && !showOnce) {
+                exitPopup.style.display = 'flex';
+                showOnce = true;
             }
         });
         
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // Chiudiamo il popup quando si clicca sulla X
+        const closeExitPopup = exitPopup.querySelector('.close-popup');
+        if (closeExitPopup) {
+            closeExitPopup.addEventListener('click', function() {
+                exitPopup.style.display = 'none';
             });
+        }
+        
+        // Chiudiamo il popup quando si clicca fuori dal contenuto
+        exitPopup.addEventListener('click', function(e) {
+            if (e.target === exitPopup) {
+                exitPopup.style.display = 'none';
+            }
         });
     }
     
-    // Form Submission
-    const orderForm = document.getElementById('order-form');
-    
-    if (orderForm) {
-        orderForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            
-            if (!name || !email || !phone || !address) {
-                alert('Per favore, compila tutti i campi obbligatori.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Per favore, inserisci un indirizzo email valido.');
-                return;
-            }
-            
-            // Phone validation
-            const phoneRegex = /^[0-9]{9,10}$/;
-            if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
-                alert('Per favore, inserisci un numero di telefono valido.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = orderForm.querySelector('.btn-order');
-            submitBtn.innerHTML = 'Elaborazione...';
-            submitBtn.disabled = true;
-            
-            setTimeout(function() {
-                alert('Grazie per il tuo ordine! Riceverai una conferma via email a breve.');
-                orderForm.reset();
-                submitBtn.innerHTML = 'ACQUISTA ORA';
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-    
-    // Bundle Selection
-    const bundleOptions = document.querySelectorAll('.bundle-option input[type="radio"]');
-    
-    if (bundleOptions.length > 0) {
-        bundleOptions.forEach(option => {
-            option.addEventListener('change', function() {
-                document.querySelectorAll('.bundle-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                
-                this.closest('.bundle-option').classList.add('selected');
-            });
-        });
+    // Aggiungiamo la classe "active" al primo pacchetto popolare
+    const popularPackage = document.querySelector('.package.popular');
+    if (popularPackage) {
+        popularPackage.classList.add('active');
     }
 });
